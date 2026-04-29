@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "backlog.md was created",
+          "path": "agile-journal/backlog.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "backlog.md contains a Definition of Done section",
+          "path": "agile-journal/backlog.md",
+          "contains": "Definition of Done"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "backlog.md contains user story format with 'As a'",
+          "path": "agile-journal/backlog.md",
+          "contains": "As a"
+        },
+        {
+          "type": "file_contains",
+          "description": "backlog.md contains 'I want' user story field",
+          "path": "agile-journal/backlog.md",
+          "contains": "I want"
+        },
+        {
+          "type": "file_contains",
+          "description": "backlog.md contains 'So that' user story field",
+          "path": "agile-journal/backlog.md",
+          "contains": "So that"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "backlog.md contains Given/When/Then acceptance criteria",
+          "path": "agile-journal/backlog.md",
+          "contains": "Given"
+        },
+        {
+          "type": "file_contains",
+          "description": "backlog.md contains When clause in acceptance criteria",
+          "path": "agile-journal/backlog.md",
+          "contains": "When"
+        },
+        {
+          "type": "file_contains",
+          "description": "backlog.md contains Then clause in acceptance criteria",
+          "path": "agile-journal/backlog.md",
+          "contains": "Then"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "backlog.md contains an Epic section",
+          "path": "agile-journal/backlog.md",
+          "contains": "Epic"
+        },
+        {
+          "type": "file_contains",
+          "description": "Definition of Done includes a code review requirement",
+          "path": "agile-journal/backlog.md",
+          "contains": "reviewed"
+        }
+      ]
+    }
+  ]
+}

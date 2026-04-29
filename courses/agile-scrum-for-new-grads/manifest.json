@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "agile-scrum-for-new-grads-2026",
+  "title": "Agile & Scrum for New Graduates",
+  "revision": "2026-04-29-001",
+  "publishedAt": "2026-04-29T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — Agile Foundations",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "From Waterfall to Agile — Why Teams Work This Way",
+          "estimatedMinutes": 45,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "scr001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Scrum in Practice",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Sprints, Ceremonies, and Your Role as a New Joiner",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "scr002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "The Product Backlog — Writing User Stories That Work",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "scr003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Working on a Real Scrum Team",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Estimation, Velocity, and Sprint Planning",
+          "estimatedMinutes": 50,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "scr004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Retrospectives and Thriving in Your First 90 Days",
+          "estimatedMinutes": 45,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "scr005"
+        }
+      ]
+    }
+  ]
+}

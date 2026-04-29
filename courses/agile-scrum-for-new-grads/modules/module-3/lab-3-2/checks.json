@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "retrospective.md was created",
+          "path": "agile-journal/retrospective.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "retrospective.md contains a Start section",
+          "path": "agile-journal/retrospective.md",
+          "contains": "## Start"
+        },
+        {
+          "type": "file_contains",
+          "description": "retrospective.md contains a Stop section",
+          "path": "agile-journal/retrospective.md",
+          "contains": "## Stop"
+        },
+        {
+          "type": "file_contains",
+          "description": "retrospective.md contains a Continue section",
+          "path": "agile-journal/retrospective.md",
+          "contains": "## Continue"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "retrospective.md contains new-joiner observations section",
+          "path": "agile-journal/retrospective.md",
+          "contains": "My Observations"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "90-day-plan.md was created",
+          "path": "agile-journal/90-day-plan.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "90-day-plan contains First 30 Days section",
+          "path": "agile-journal/90-day-plan.md",
+          "contains": "First 30 Days"
+        },
+        {
+          "type": "file_contains",
+          "description": "90-day-plan contains Days 61-90 section",
+          "path": "agile-journal/90-day-plan.md",
+          "contains": "Days 61-90"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "retrospective.md contains personal learning retrospective section",
+          "path": "agile-journal/retrospective.md",
+          "contains": "Personal Learning Retrospective"
+        },
+        {
+          "type": "file_contains",
+          "description": "retrospective.md contains a one commitment statement",
+          "path": "agile-journal/retrospective.md",
+          "contains": "My one commitment"
+        }
+      ]
+    }
+  ]
+}

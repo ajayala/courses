@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "sprint-plan.md was created",
+          "path": "agile-journal/sprint-plan.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "sprint-plan.md contains a Sprint Goal field",
+          "path": "agile-journal/sprint-plan.md",
+          "contains": "Sprint goal"
+        },
+        {
+          "type": "file_contains",
+          "description": "sprint-plan.md contains a committed stories table",
+          "path": "agile-journal/sprint-plan.md",
+          "contains": "Committed Stories"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "sprint-plan.md contains estimation session notes",
+          "path": "agile-journal/sprint-plan.md",
+          "contains": "Estimation Session"
+        },
+        {
+          "type": "file_contains",
+          "description": "Estimation notes include final estimate field",
+          "path": "agile-journal/sprint-plan.md",
+          "contains": "Final estimate"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "sprint-plan.md contains velocity reference section",
+          "path": "agile-journal/sprint-plan.md",
+          "contains": "Velocity"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "sprint-plan.md contains my committed stories section",
+          "path": "agile-journal/sprint-plan.md",
+          "contains": "My committed stories"
+        },
+        {
+          "type": "file_contains",
+          "description": "sprint-plan.md contains a sprint success definition",
+          "path": "agile-journal/sprint-plan.md",
+          "contains": "successful when"
+        }
+      ]
+    }
+  ]
+}

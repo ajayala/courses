@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "agile-journal directory was created",
+          "path": "agile-journal"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "agile-manifesto-reflection.md was created",
+          "path": "agile-journal/agile-manifesto-reflection.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Reflection file contains all four value headings",
+          "path": "agile-journal/agile-manifesto-reflection.md",
+          "contains": "Value 1"
+        },
+        {
+          "type": "file_contains",
+          "description": "Reflection file contains Value 4 heading",
+          "path": "agile-journal/agile-manifesto-reflection.md",
+          "contains": "Value 4"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Reflection includes terminology clarification",
+          "path": "agile-journal/agile-manifesto-reflection.md",
+          "contains": "Terminology"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Reflection includes a first-week questions section",
+          "path": "agile-journal/agile-manifesto-reflection.md",
+          "contains": "My questions"
+        },
+        {
+          "type": "file_contains",
+          "description": "At least one value section has personal notes (contains 'My understanding')",
+          "path": "agile-journal/agile-manifesto-reflection.md",
+          "contains": "My understanding"
+        }
+      ]
+    }
+  ]
+}

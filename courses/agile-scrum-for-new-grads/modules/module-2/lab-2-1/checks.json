@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "sprint-ceremonies.md was created",
+          "path": "agile-journal/sprint-ceremonies.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains all four ceremony headings",
+          "path": "agile-journal/sprint-ceremonies.md",
+          "contains": "Sprint Planning"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains Retrospective heading",
+          "path": "agile-journal/sprint-ceremonies.md",
+          "contains": "Sprint Retrospective"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File includes standup template with Yesterday field",
+          "path": "agile-journal/sprint-ceremonies.md",
+          "contains": "Yesterday"
+        },
+        {
+          "type": "file_contains",
+          "description": "File includes standup template with Blockers field",
+          "path": "agile-journal/sprint-ceremonies.md",
+          "contains": "Blockers"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File includes retro prep template with Start field",
+          "path": "agile-journal/sprint-ceremonies.md",
+          "contains": "Start"
+        },
+        {
+          "type": "file_contains",
+          "description": "File includes retro prep template with Continue field",
+          "path": "agile-journal/sprint-ceremonies.md",
+          "contains": "Continue"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Daily Standup section has a When field completed",
+          "path": "agile-journal/sprint-ceremonies.md",
+          "contains": "Daily Standup"
+        },
+        {
+          "type": "file_contains",
+          "description": "Sprint Review section is present",
+          "path": "agile-journal/sprint-ceremonies.md",
+          "contains": "Sprint Review"
+        }
+      ]
+    }
+  ]
+}
