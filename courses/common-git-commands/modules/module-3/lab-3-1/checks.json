@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "feature/greeting-cli branch exists",
+          "command": "git branch",
+          "pattern": "feature/greeting-cli"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "cli.py was created on the feature branch",
+          "path": "cli.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "cli.py imports from greet module",
+          "path": "cli.py",
+          "contains": "from greet import"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "cli.py is present on main after fast-forward merge",
+          "command": "git show main:cli.py"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "settings.py was created",
+          "path": "settings.py"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "History contains a three-way merge commit",
+          "command": "git log --oneline --merges",
+          "pattern": "[Mm]erge"
+        }
+      ]
+    }
+  ]
+}

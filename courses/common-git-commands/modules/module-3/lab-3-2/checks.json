@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "At least one remote named 'origin' is configured",
+          "command": "git remote get-url origin"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "feature/readme-update branch exists",
+          "command": "git branch",
+          "pattern": "feature/readme-update"
+        },
+        {
+          "type": "file_contains",
+          "description": "README.md contains the Usage section",
+          "path": "README.md",
+          "contains": "## Usage"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "main branch has a tracking upstream configured",
+          "command": "git branch -vv",
+          "pattern": "main.*\\[origin/main"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Cloned project directory exists",
+          "path": "../cloned-project/.git"
+        }
+      ]
+    }
+  ]
+}

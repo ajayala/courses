@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "common-git-commands-2026",
+  "title": "Common Git Commands: A Hands-On Course",
+  "revision": "2026-04-29-001",
+  "publishedAt": "2026-04-29T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — Getting Started with Git",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Setting Up Git and Your First Repository",
+          "estimatedMinutes": 45,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "git001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Tracking and Undoing Changes",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Staging, Committing, and Viewing History",
+          "estimatedMinutes": 45,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "git002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Undoing Changes and Recovering Work",
+          "estimatedMinutes": 45,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "git003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Branching and Collaboration",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Branching and Merging",
+          "estimatedMinutes": 50,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "git004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Working with Remote Repositories",
+          "estimatedMinutes": 50,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "git005"
+        }
+      ]
+    }
+  ]
+}

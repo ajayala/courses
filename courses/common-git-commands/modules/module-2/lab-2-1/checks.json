@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "greet.py exists in the repository",
+          "path": "greet.py"
+        },
+        {
+          "type": "file_exists",
+          "description": "config.txt exists in the repository",
+          "path": "config.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "greet.py contains the farewell function",
+          "path": "greet.py",
+          "contains": "def farewell"
+        },
+        {
+          "type": "file_contains",
+          "description": "greet.py contains the shout helper",
+          "path": "greet.py",
+          "contains": "def shout"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "Repository has at least two commits",
+          "command": "git log --oneline | wc -l | awk '{exit ($1 >= 2) ? 0 : 1}'"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "config.txt contains the version comment",
+          "path": "config.txt",
+          "contains": "config version"
+        }
+      ]
+    }
+  ]
+}
