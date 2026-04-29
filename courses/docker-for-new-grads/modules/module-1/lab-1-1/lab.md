@@ -2,7 +2,37 @@
 
 In this lab you will learn the problem Docker was built to solve, understand how containers differ from virtual machines, and run your first containers — from a simple hello-world to an interactive shell inside a real Linux environment. By the end you will be comfortable with the container lifecycle and the handful of commands you will use every single day.
 
-**Prerequisites:** Docker Desktop installed and running (check with `docker --version`). A terminal. No prior Docker experience required.
+**Prerequisites:** Docker Desktop installed and running (check with `docker --version`). **Windows users: all shell commands in this course must be run in Git Bash** — not PowerShell or Command Prompt. Git Bash ships with [Git for Windows](https://git-scm.com/download/win) and provides the bash environment the course commands require. No prior Docker experience required.
+
+---
+
+## Step 0 — Windows Users: Set Up Git Bash
+
+If you are on macOS or Linux, skip to Step 1.
+
+Git Bash gives you a bash shell on Windows that is compatible with all commands in this course. Docker Desktop also integrates with it automatically.
+
+**Install Git for Windows:**
+
+1. Download the installer from [git-scm.com/download/win](https://git-scm.com/download/win).
+2. During installation, on the *Adjusting your PATH environment* screen, select **Git from the command line and also from 3rd-party software**.
+3. On the *Configuring the terminal emulator* screen, select **Use MinTTY** (the default Git Bash terminal).
+4. Complete the installation.
+
+**Open Git Bash:**
+
+- Search for **Git Bash** in the Start menu and open it. You will see a terminal prompt like `user@MACHINE MINGW64 ~`.
+
+**Verify Docker is accessible from Git Bash:**
+
+```bash
+docker --version
+docker compose version
+```
+
+Both commands should print version numbers. If `docker` is not found, open Docker Desktop, go to **Settings → General**, and ensure **Add the *.docker/bin path to PATH in your shells** is enabled, then restart Git Bash.
+
+> **Tip:** Pin Git Bash to your taskbar for this course — you will use it for every lab.
 
 ---
 
