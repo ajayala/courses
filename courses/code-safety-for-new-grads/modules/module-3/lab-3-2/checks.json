@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "incident-runbook.md was created",
+          "path": "safety-journal/incident-runbook.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Runbook contains severity classification table",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "Severity Classification"
+        },
+        {
+          "type": "file_contains",
+          "description": "Runbook includes P1 Critical severity",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "P1"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Runbook contains Step 1 — Revoke",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "Step 1: Revoke"
+        },
+        {
+          "type": "file_contains",
+          "description": "Runbook contains Step 2 — Notify",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "Step 2: Notify"
+        },
+        {
+          "type": "file_contains",
+          "description": "Runbook contains blast radius assessment",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "Blast Radius"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "post-mortem template was created",
+          "path": "safety-journal/post-mortem-template.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Post-mortem template includes timeline section",
+          "path": "safety-journal/post-mortem-template.md",
+          "contains": "## Timeline"
+        },
+        {
+          "type": "file_contains",
+          "description": "Post-mortem template includes root cause section",
+          "path": "safety-journal/post-mortem-template.md",
+          "contains": "Root Cause"
+        },
+        {
+          "type": "file_contains",
+          "description": "Post-mortem template includes action items table",
+          "path": "safety-journal/post-mortem-template.md",
+          "contains": "Action Items"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Runbook contains history cleaning step",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "Step 5: Clean History"
+        },
+        {
+          "type": "file_contains",
+          "description": "Runbook contains post-mortem step",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "Step 6: Post-mortem"
+        },
+        {
+          "type": "file_contains",
+          "description": "Runbook contains contacts section",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "## Contacts"
+        },
+        {
+          "type": "file_contains",
+          "description": "Runbook includes pre-authorised actions",
+          "path": "safety-journal/incident-runbook.md",
+          "contains": "Pre-authorised Actions"
+        }
+      ]
+    }
+  ]
+}

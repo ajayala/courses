@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "safety-journal directory was created",
+          "path": "safety-journal"
+        },
+        {
+          "type": "file_exists",
+          "description": "secret-classification.md was created",
+          "path": "safety-journal/secret-classification.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains secret definition section",
+          "path": "safety-journal/secret-classification.md",
+          "contains": "What Counts as a Secret"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains severity classification",
+          "path": "safety-journal/secret-classification.md",
+          "contains": "High Severity"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains the leak vectors table",
+          "path": "safety-journal/secret-classification.md",
+          "contains": "Leak Vectors"
+        },
+        {
+          "type": "file_contains",
+          "description": "Leak vectors table includes git history row",
+          "path": "safety-journal/secret-classification.md",
+          "contains": "Git history"
+        },
+        {
+          "type": "file_contains",
+          "description": "Leak vectors table includes CI/CD row",
+          "path": "safety-journal/secret-classification.md",
+          "contains": "CI/CD"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains the personal pre-push checklist",
+          "path": "safety-journal/secret-classification.md",
+          "contains": "Personal Risk Checklist"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains Day One questions",
+          "path": "safety-journal/secret-classification.md",
+          "contains": "Questions I Will Ask on Day One"
+        }
+      ]
+    }
+  ]
+}

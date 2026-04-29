@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": ".gitignore covers all .env variants",
+          "path": "safe-app/.gitignore",
+          "contains": ".env.*"
+        },
+        {
+          "type": "file_contains",
+          "description": ".gitignore covers *.env pattern",
+          "path": "safe-app/.gitignore",
+          "contains": "*.env"
+        },
+        {
+          "type": "file_contains",
+          "description": ".gitignore covers private key files",
+          "path": "safe-app/.gitignore",
+          "contains": "*.pem"
+        },
+        {
+          "type": "file_contains",
+          "description": ".gitignore covers cloud credential files",
+          "path": "safe-app/.gitignore",
+          "contains": "credentials.json"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "detect-secrets baseline file was created",
+          "path": "safe-app/.secrets.baseline"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".pre-commit-config.yaml was created",
+          "path": "safe-app/.pre-commit-config.yaml"
+        },
+        {
+          "type": "file_contains",
+          "description": "Pre-commit config includes detect-secrets hook",
+          "path": "safe-app/.pre-commit-config.yaml",
+          "contains": "detect-secrets"
+        },
+        {
+          "type": "file_contains",
+          "description": "Pre-commit config includes detect-private-key hook",
+          "path": "safe-app/.pre-commit-config.yaml",
+          "contains": "detect-private-key"
+        },
+        {
+          "type": "file_contains",
+          "description": "Pre-commit config references the secrets baseline",
+          "path": "safe-app/.pre-commit-config.yaml",
+          "contains": ".secrets.baseline"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "SECURITY.md was created",
+          "path": "safe-app/SECURITY.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "SECURITY.md documents the three defence layers",
+          "path": "safe-app/SECURITY.md",
+          "contains": "Layer 1"
+        },
+        {
+          "type": "file_contains",
+          "description": "SECURITY.md includes incident response pointer",
+          "path": "safe-app/SECURITY.md",
+          "contains": "If You Find a Secret"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Dependabot configuration was created",
+          "path": "safe-app/.github/dependabot.yml"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dependabot config enables weekly pip updates",
+          "path": "safe-app/.github/dependabot.yml",
+          "contains": "weekly"
+        }
+      ]
+    }
+  ]
+}

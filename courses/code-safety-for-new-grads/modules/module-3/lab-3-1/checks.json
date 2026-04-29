@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "tool-risks.md was created",
+          "path": "safety-journal/tool-risks.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains linters section",
+          "path": "safety-journal/tool-risks.md",
+          "contains": "Linters"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains CI/CD section",
+          "path": "safety-journal/tool-risks.md",
+          "contains": "CI/CD"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains Docker section",
+          "path": "safety-journal/tool-risks.md",
+          "contains": "Docker"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "safe_logging.py was created",
+          "path": "safe-app/safe_logging.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "safe_logging.py defines SAFE_HEADERS allowlist",
+          "path": "safe-app/safe_logging.py",
+          "contains": "SAFE_HEADERS"
+        },
+        {
+          "type": "file_contains",
+          "description": "safe_logging.py includes safe request logging function",
+          "path": "safe-app/safe_logging.py",
+          "contains": "log_request_safely"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "check_production_safety.py was created",
+          "path": "safe-app/check_production_safety.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "Safety check catches DEBUG=true in production",
+          "path": "safe-app/check_production_safety.py",
+          "contains": "DEBUG"
+        },
+        {
+          "type": "file_contains",
+          "description": "Safety check validates JWT secret is not a placeholder",
+          "path": "safe-app/check_production_safety.py",
+          "contains": "JWT_SECRET"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "safe CI workflow was created",
+          "path": "safe-app/.github/workflows/safe-ci.yml"
+        },
+        {
+          "type": "file_contains",
+          "description": "CI workflow uses secrets via env block",
+          "path": "safe-app/.github/workflows/safe-ci.yml",
+          "contains": "secrets."
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "tool-risks.md includes safe logging rules checklist",
+          "path": "safety-journal/tool-risks.md",
+          "contains": "Logging rules"
+        },
+        {
+          "type": "file_contains",
+          "description": "tool-risks.md includes Docker rules checklist",
+          "path": "safety-journal/tool-risks.md",
+          "contains": "Docker rules"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "config-antipatterns.md was created",
+          "path": "safety-journal/config-antipatterns.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Anti-patterns table includes hardcoded values row",
+          "path": "safety-journal/config-antipatterns.md",
+          "contains": "Hardcoded values"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "safe-app directory was created",
+          "path": "safe-app"
+        },
+        {
+          "type": "file_exists",
+          "description": "app.py was created",
+          "path": "safe-app/app.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "app.py reads DATABASE_URL from environment",
+          "path": "safe-app/app.py",
+          "contains": "DATABASE_URL"
+        },
+        {
+          "type": "file_contains",
+          "description": "app.py uses os.environ and never hardcodes secrets",
+          "path": "safe-app/app.py",
+          "contains": "os.environ"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".gitignore exists",
+          "path": "safe-app/.gitignore"
+        },
+        {
+          "type": "file_contains",
+          "description": ".gitignore excludes .env files",
+          "path": "safe-app/.gitignore",
+          "contains": ".env"
+        },
+        {
+          "type": "file_contains",
+          "description": ".gitignore excludes private key files",
+          "path": "safe-app/.gitignore",
+          "contains": ".pem"
+        },
+        {
+          "type": "file_exists",
+          "description": ".env.example committed as template",
+          "path": "safe-app/.env.example"
+        },
+        {
+          "type": "file_contains",
+          "description": ".env.example contains DATABASE_URL placeholder",
+          "path": "safe-app/.env.example",
+          "contains": "DATABASE_URL"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Anti-patterns reference includes correct pattern summary",
+          "path": "safety-journal/config-antipatterns.md",
+          "contains": "Correct Pattern Summary"
+        },
+        {
+          "type": "file_contains",
+          "description": "Reference lists files that must always be in .gitignore",
+          "path": "safety-journal/config-antipatterns.md",
+          "contains": "Must ALWAYS Be in .gitignore"
+        }
+      ]
+    }
+  ]
+}
