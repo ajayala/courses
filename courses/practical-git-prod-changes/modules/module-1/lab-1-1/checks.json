@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "VERSION file exists",
+          "path": "prod-app/VERSION"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "v1.0.0 tag exists",
+          "command": "git -C prod-app tag -l",
+          "pattern": "v1\\.0\\.0"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "develop branch exists",
+          "command": "git -C prod-app branch",
+          "pattern": "develop"
+        },
+        {
+          "type": "file_exists",
+          "description": "DEVNOTES.md exists on develop",
+          "path": "prod-app/DEVNOTES.md"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "pre-push hook exists and is executable",
+          "path": "prod-app/.git/hooks/pre-push"
+        },
+        {
+          "type": "file_contains",
+          "description": "pre-push hook guards main branch",
+          "path": "prod-app/.git/hooks/pre-push",
+          "contains": "protected_branches"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "feature/add-health-endpoint branch exists",
+          "command": "git -C prod-app branch",
+          "pattern": "feature/add-health-endpoint"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "v1.1.0 release tag exists on main",
+          "command": "git -C prod-app tag -l",
+          "pattern": "v1\\.1\\.0"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "main history contains a merge commit",
+          "command": "git -C prod-app log --oneline --merges main",
+          "pattern": "Release|[Mm]erge"
+        }
+      ]
+    }
+  ]
+}

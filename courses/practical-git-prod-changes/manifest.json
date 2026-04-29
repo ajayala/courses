@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "practical-git-prod-changes-2026",
+  "title": "Practical Git for Production Code Changes",
+  "revision": "2026-04-29-001",
+  "publishedAt": "2026-04-29T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — The Safe Change Workflow",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Branching Strategy and Protecting Main",
+          "estimatedMinutes": 45,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "prd001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Making Changes Safely",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Feature Branches and the Pull Request Flow",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "prd002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Rebasing and Keeping a Clean History",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "prd003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Production Incidents and Recovery",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Hotfixes — Emergency Changes to Production",
+          "estimatedMinutes": 45,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "prd004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Rolling Back a Broken Deployment",
+          "estimatedMinutes": 45,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "prd005"
+        }
+      ]
+    }
+  ]
+}

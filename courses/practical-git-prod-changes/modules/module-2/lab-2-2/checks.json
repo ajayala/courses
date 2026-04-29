@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "No fixup! commit remains in branch history after autosquash",
+          "command": "git -C prod-app log develop..feature/JIRA-42-add-rate-limiting --oneline",
+          "pattern": "^(?!.*fixup!).*"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "Middleware commit message has been reworded",
+          "command": "git -C prod-app log develop..feature/JIRA-42-add-rate-limiting --oneline",
+          "pattern": "RateLimitMiddleware"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "develop history contains a merge commit for JIRA-42",
+          "command": "git -C prod-app log --oneline --merges develop",
+          "pattern": "JIRA-42|rate.limit"
+        },
+        {
+          "type": "file_contains",
+          "description": "middleware.py is present on develop after merge",
+          "path": "prod-app/middleware.py",
+          "contains": "class RateLimitMiddleware"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "A breaking commit exists in main history",
+          "command": "git -C prod-app log --oneline main",
+          "pattern": "BREAKING|broken|mistaken"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "A revert commit exists in main history",
+          "command": "git -C prod-app log --oneline main",
+          "pattern": "[Rr]evert"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "rate_limit.cfg has the correct value after revert",
+          "command": "git -C prod-app show main:rate_limit.cfg",
+          "pattern": "requests_per_minute = 60"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "A rollback tag exists",
+          "command": "git -C prod-app tag -l",
+          "pattern": "rollback|stable"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "v1.1.2 fix-forward tag exists",
+          "command": "git -C prod-app tag -l",
+          "pattern": "v1\\.1\\.2"
+        },
+        {
+          "type": "file_contains",
+          "description": "rate_limit.cfg contains the inline safety warning comment",
+          "path": "prod-app/rate_limit.cfg",
+          "contains": "Minimum safe value"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "develop contains the fix-forward merge",
+          "command": "git -C prod-app log --oneline --merges develop",
+          "pattern": "hotfix/1\\.1\\.2|fix.forward|INC-902"
+        }
+      ]
+    }
+  ]
+}

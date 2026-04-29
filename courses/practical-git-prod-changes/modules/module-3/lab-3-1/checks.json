@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "hotfix/1.1.1 branch exists",
+          "command": "git -C prod-app branch",
+          "pattern": "hotfix/1\\.1\\.1"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "rate_limit.cfg has the corrected value of 60",
+          "path": "prod-app/rate_limit.cfg",
+          "contains": "requests_per_minute = 60"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "Fix commit message references the rate limit",
+          "command": "git -C prod-app log hotfix/1.1.1 --oneline -1",
+          "pattern": "rate.limit|Fix"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "v1.1.1 tag exists",
+          "command": "git -C prod-app tag -l",
+          "pattern": "v1\\.1\\.1"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "main contains a hotfix merge commit",
+          "command": "git -C prod-app log --oneline --merges main",
+          "pattern": "hotfix|Hotfix"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "develop also contains the hotfix merge",
+          "command": "git -C prod-app log --oneline --merges develop",
+          "pattern": "hotfix|Hotfix"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "develop rate_limit.cfg has the corrected value",
+          "command": "git -C prod-app show develop:rate_limit.cfg",
+          "pattern": "requests_per_minute = 60"
+        }
+      ]
+    }
+  ]
+}

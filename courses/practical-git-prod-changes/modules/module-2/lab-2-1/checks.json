@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "feature/JIRA-42-add-rate-limiting branch exists",
+          "command": "git -C prod-app branch",
+          "pattern": "feature/JIRA-42-add-rate-limiting"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "rate_limit.cfg was created",
+          "path": "prod-app/rate_limit.cfg"
+        },
+        {
+          "type": "file_contains",
+          "description": "rate_limit.cfg has enabled=true",
+          "path": "prod-app/rate_limit.cfg",
+          "contains": "enabled = true"
+        },
+        {
+          "type": "file_exists",
+          "description": "middleware.py was created",
+          "path": "prod-app/middleware.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "middleware.py defines RateLimitMiddleware",
+          "path": "prod-app/middleware.py",
+          "contains": "class RateLimitMiddleware"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "middleware.py contains docstring after review fixup",
+          "path": "prod-app/middleware.py",
+          "contains": "WSGI middleware"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "A fixup commit exists in branch history",
+          "command": "git -C prod-app log --oneline feature/JIRA-42-add-rate-limiting",
+          "pattern": "fixup!"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "PR description file exists",
+          "path": "prod-app/.pr-description.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "PR description contains a Why section",
+          "path": "prod-app/.pr-description.md",
+          "contains": "## Why"
+        }
+      ]
+    }
+  ]
+}
