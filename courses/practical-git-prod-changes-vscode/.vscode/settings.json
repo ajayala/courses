@@ -1,0 +1,7 @@
+{
+  "labs.courseSourceUrl": "${workspaceFolder}",
+  "git.enableSmartCommit": false,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "scm.defaultViewMode": "tree"
+}

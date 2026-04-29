@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "hotfix/1.0.1 branch exists",
+          "command": "git -C vscode-prod-app branch",
+          "pattern": "hotfix/1\\.0\\.1"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "health.py checks APP_READY environment variable",
+          "path": "vscode-prod-app/src/health.py",
+          "contains": "APP_READY"
+        },
+        {
+          "type": "file_contains",
+          "description": "health.py returns degraded status when unhealthy",
+          "path": "vscode-prod-app/src/health.py",
+          "contains": "degraded"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "v1.0.1 hotfix tag exists",
+          "command": "git -C vscode-prod-app tag -l",
+          "pattern": "v1\\.0\\.1"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "Hotfix commit message references the incident",
+          "command": "git -C vscode-prod-app log --oneline hotfix/1.0.1 -1",
+          "pattern": "Fix|health|INC"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "main contains the hotfix via a merge commit",
+          "command": "git -C vscode-prod-app log --oneline --merges main",
+          "pattern": "hotfix|[Mm]erge"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "develop contains the hotfix",
+          "command": "git -C vscode-prod-app log --oneline develop",
+          "pattern": "Fix|health|INC"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "health.py on develop includes the degraded status fix",
+          "command": "git -C vscode-prod-app show develop:src/health.py",
+          "pattern": "degraded"
+        }
+      ]
+    }
+  ]
+}

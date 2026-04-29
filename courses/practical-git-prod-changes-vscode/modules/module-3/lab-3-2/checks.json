@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "Bad startup probe commit exists in main history",
+          "command": "git -C vscode-prod-app log --oneline main",
+          "pattern": "startup.probe|INC-911"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "A revert commit exists in main history",
+          "command": "git -C vscode-prod-app log --oneline main",
+          "pattern": "[Rr]evert.*startup|[Rr]evert.*INC-911"
+        },
+        {
+          "type": "command_exits_zero",
+          "description": "health.py on main does not contain the division by zero bug",
+          "command": "git -C vscode-prod-app show main:src/health.py | grep -v '1 / 0'"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "v1.0.1-stable rollback tag exists",
+          "command": "git -C vscode-prod-app tag -l",
+          "pattern": "v1\\.0\\.1-stable"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "v1.0.2 fix-forward tag exists",
+          "command": "git -C vscode-prod-app tag -l",
+          "pattern": "v1\\.0\\.2"
+        },
+        {
+          "type": "file_contains",
+          "description": "health.py contains the safe startup probe implementation",
+          "path": "vscode-prod-app/src/health.py",
+          "contains": "def startup_probe"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "develop has the fix-forward commit",
+          "command": "git -C vscode-prod-app log --oneline develop",
+          "pattern": "startup.probe|INC-911 fix"
+        }
+      ]
+    }
+  ]
+}

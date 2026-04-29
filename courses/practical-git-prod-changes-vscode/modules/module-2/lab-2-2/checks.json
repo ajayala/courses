@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "feature/add-health-check has a remote tracking branch",
+          "command": "git -C vscode-prod-app branch -vv",
+          "pattern": "feature/add-health-check.*origin/feature/add-health-check"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Pull request template exists",
+          "path": "vscode-prod-app/.github/pull_request_template.md"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "health check commit is now on main",
+          "command": "git -C vscode-prod-app log --oneline main",
+          "pattern": "health"
+        },
+        {
+          "type": "command_exits_zero",
+          "description": "feature branch has been deleted locally",
+          "command": "git -C vscode-prod-app branch | grep -v 'feature/add-health-check' | head -1"
+        }
+      ]
+    }
+  ]
+}

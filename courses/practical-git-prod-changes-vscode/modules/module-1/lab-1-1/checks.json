@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".git directory exists — repository initialised",
+          "path": "vscode-prod-app/.git"
+        },
+        {
+          "type": "file_exists",
+          "description": "README.md was created",
+          "path": "vscode-prod-app/README.md"
+        },
+        {
+          "type": "file_exists",
+          "description": "VERSION file was created",
+          "path": "vscode-prod-app/VERSION"
+        },
+        {
+          "type": "file_exists",
+          "description": "src/app.py was created",
+          "path": "vscode-prod-app/src/app.py"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "At least one commit exists in the repository",
+          "command": "git -C vscode-prod-app log --oneline"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "Commit message references README or initial commit",
+          "command": "git -C vscode-prod-app log --oneline -1",
+          "pattern": "[Ii]nitial|README"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "v1.0.0 tag exists",
+          "command": "git -C vscode-prod-app tag -l",
+          "pattern": "v1\\.0\\.0"
+        }
+      ]
+    }
+  ]
+}

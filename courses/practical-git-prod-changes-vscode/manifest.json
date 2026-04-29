@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "practical-git-prod-changes-vscode-2026",
+  "title": "Practical Git for Production Changes — VS Code Edition",
+  "revision": "2026-04-29-001",
+  "publishedAt": "2026-04-29T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — The VS Code Git Panel",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Source Control Panel and Your First Commit",
+          "estimatedMinutes": 40,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "vsc001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Branching and Reviewing Changes",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Branches, Staging Hunks, and the Diff Editor",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "vsc002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Timeline, Stash, and the GitHub Pull Request Flow",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "vsc003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Production Incidents via VS Code",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Hotfixes — Emergency Changes Using the VS Code UI",
+          "estimatedMinutes": 45,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "vsc004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Reverting and Rolling Back via the Source Control Panel",
+          "estimatedMinutes": 45,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "vsc005"
+        }
+      ]
+    }
+  ]
+}
