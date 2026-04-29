@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "software-architecture-for-new-grads-2026",
+  "title": "Software Architecture for New Graduates",
+  "revision": "2026-04-29-001",
+  "publishedAt": "2026-04-29T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — The Architect's Mindset",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Big Decisions, Quality Attributes, and Trade-offs",
+          "estimatedMinutes": 50,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "arc001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Patterns You Will Encounter on Day One",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Layered Architecture — The Pattern Hiding in Every Codebase",
+          "estimatedMinutes": 55,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "arc002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Monolith vs Microservices — The Conversation Every Team Has",
+          "estimatedMinutes": 55,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "arc003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Thinking and Communicating Like an Architect",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Drawing Architecture Diagrams with the C4 Model",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "arc004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Architecture Decision Records and Your Role as a Junior Engineer",
+          "estimatedMinutes": 50,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "arc005"
+        }
+      ]
+    }
+  ]
+}

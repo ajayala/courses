@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "layered-design.md was created",
+          "path": "arch-journal/layered-design.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains layers table with Presentation row",
+          "path": "arch-journal/layered-design.md",
+          "contains": "Presentation"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains Dependency Rule section",
+          "path": "arch-journal/layered-design.md",
+          "contains": "Dependency Rule"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains MVC mapping section",
+          "path": "arch-journal/layered-design.md",
+          "contains": "MVC Mapping"
+        },
+        {
+          "type": "file_contains",
+          "description": "MVC section covers Controller component",
+          "path": "arch-journal/layered-design.md",
+          "contains": "Controller"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains Repository pattern section",
+          "path": "arch-journal/layered-design.md",
+          "contains": "Repository"
+        },
+        {
+          "type": "file_contains",
+          "description": "File lists at least one repository (BookRepository)",
+          "path": "arch-journal/layered-design.md",
+          "contains": "BookRepository"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains anemic vs rich model section",
+          "path": "arch-journal/layered-design.md",
+          "contains": "Anemic"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains a verdict section",
+          "path": "arch-journal/layered-design.md",
+          "contains": "My Verdict"
+        }
+      ]
+    }
+  ]
+}

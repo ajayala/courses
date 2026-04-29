@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "arch-journal directory was created",
+          "path": "arch-journal"
+        },
+        {
+          "type": "file_exists",
+          "description": "quality-attributes.md was created",
+          "path": "arch-journal/quality-attributes.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains architecture definition section",
+          "path": "arch-journal/quality-attributes.md",
+          "contains": "What Architecture Is"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains quality attributes reference table",
+          "path": "arch-journal/quality-attributes.md",
+          "contains": "Quality Attributes Reference"
+        },
+        {
+          "type": "file_contains",
+          "description": "File references Scalability attribute",
+          "path": "arch-journal/quality-attributes.md",
+          "contains": "Scalability"
+        },
+        {
+          "type": "file_contains",
+          "description": "File references Availability attribute",
+          "path": "arch-journal/quality-attributes.md",
+          "contains": "Availability"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains first-week questions section",
+          "path": "arch-journal/quality-attributes.md",
+          "contains": "Questions to Ask"
+        },
+        {
+          "type": "file_contains",
+          "description": "File contains architectural styles summary",
+          "path": "arch-journal/quality-attributes.md",
+          "contains": "Architectural Styles"
+        },
+        {
+          "type": "file_contains",
+          "description": "Styles table includes Microservices row",
+          "path": "arch-journal/quality-attributes.md",
+          "contains": "Microservices"
+        }
+      ]
+    }
+  ]
+}

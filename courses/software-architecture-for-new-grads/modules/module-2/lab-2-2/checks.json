@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "monolith-vs-microservices.md was created",
+          "path": "arch-journal/monolith-vs-microservices.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "File defines the hypothetical system",
+          "path": "arch-journal/monolith-vs-microservices.md",
+          "contains": "My Team's Hypothetical System"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains monolith pain points table",
+          "path": "arch-journal/monolith-vs-microservices.md",
+          "contains": "Monolith Pain Points"
+        },
+        {
+          "type": "file_contains",
+          "description": "Table includes deployment coupling row",
+          "path": "arch-journal/monolith-vs-microservices.md",
+          "contains": "Deployment coupling"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains microservices hidden costs table",
+          "path": "arch-journal/monolith-vs-microservices.md",
+          "contains": "Hidden Costs"
+        },
+        {
+          "type": "file_contains",
+          "description": "Table includes distributed transactions row",
+          "path": "arch-journal/monolith-vs-microservices.md",
+          "contains": "Distributed transactions"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains a recommendation section",
+          "path": "arch-journal/monolith-vs-microservices.md",
+          "contains": "My Recommendation"
+        },
+        {
+          "type": "file_contains",
+          "description": "Recommendation includes reasoning",
+          "path": "arch-journal/monolith-vs-microservices.md",
+          "contains": "Reasoning"
+        },
+        {
+          "type": "file_contains",
+          "description": "Recommendation includes a revisit trigger",
+          "path": "arch-journal/monolith-vs-microservices.md",
+          "contains": "revisit"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "decisions directory was created",
+          "path": "arch-journal/decisions"
+        },
+        {
+          "type": "file_exists",
+          "description": "adr-001.md was created",
+          "path": "arch-journal/decisions/adr-001.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "ADR template contains Context section",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "## Context"
+        },
+        {
+          "type": "file_contains",
+          "description": "ADR template contains Options Considered section",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "## Options Considered"
+        },
+        {
+          "type": "file_contains",
+          "description": "ADR template contains Consequences section",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "## Consequences"
+        },
+        {
+          "type": "file_contains",
+          "description": "ADR template contains Revisit When section",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "Revisit When"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "ADR includes anti-patterns section",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "Anti-Patterns"
+        },
+        {
+          "type": "file_contains",
+          "description": "Anti-patterns section covers Big Ball of Mud",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "Big Ball of Mud"
+        },
+        {
+          "type": "file_contains",
+          "description": "Anti-patterns section covers Distributed Monolith",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "Distributed Monolith"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "ADR has a meaningful decision title (not just placeholder)",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "## Decision"
+        },
+        {
+          "type": "file_contains",
+          "description": "ADR includes at least two options with Pros and Cons",
+          "path": "arch-journal/decisions/adr-001.md",
+          "contains": "Pros:"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "architecture-roadmap.md was created",
+          "path": "arch-journal/architecture-roadmap.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Roadmap contains Year 1 goals",
+          "path": "arch-journal/architecture-roadmap.md",
+          "contains": "Year 1"
+        },
+        {
+          "type": "file_contains",
+          "description": "Roadmap contains Year 3 goals",
+          "path": "arch-journal/architecture-roadmap.md",
+          "contains": "Year 3"
+        },
+        {
+          "type": "file_contains",
+          "description": "Roadmap includes the quarterly self-assessment question",
+          "path": "arch-journal/architecture-roadmap.md",
+          "contains": "Question I Will Ask"
+        }
+      ]
+    }
+  ]
+}

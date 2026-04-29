@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "c4-diagram.md was created",
+          "path": "arch-journal/c4-diagram.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "File introduces the C4 model",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "C4 model"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains a Level 1 Context diagram",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "Level 1"
+        },
+        {
+          "type": "file_contains",
+          "description": "Context diagram uses C4Context Mermaid type",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "C4Context"
+        },
+        {
+          "type": "file_contains",
+          "description": "Context diagram includes a Person shape for Customer",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "Person(customer"
+        },
+        {
+          "type": "file_contains",
+          "description": "Context diagram includes at least one external system",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "System_Ext"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains a Level 2 Container diagram",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "C4Container"
+        },
+        {
+          "type": "file_contains",
+          "description": "Container diagram includes a database container",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "ContainerDb"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains a Level 3 Component diagram",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "C4Component"
+        },
+        {
+          "type": "file_contains",
+          "description": "Component diagram includes repository components",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "Repository"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "File contains the diagram review checklist",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "Diagram Review Checklist"
+        },
+        {
+          "type": "file_contains",
+          "description": "Checklist covers context diagram requirements",
+          "path": "arch-journal/c4-diagram.md",
+          "contains": "Context diagram"
+        }
+      ]
+    }
+  ]
+}
