@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "Docker is installed and the daemon is running",
+          "command": "docker info"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "hello-world image has been pulled",
+          "command": "docker images hello-world --format '{{.Repository}}' | grep hello-world"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "nginx image is available locally",
+          "command": "docker images nginx --format '{{.Repository}}' | grep nginx"
+        }
+      ]
+    },
+    {
+      "stepIndex": 6,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "docker-course directory was created",
+          "path": "docker-course"
+        },
+        {
+          "type": "file_exists",
+          "description": "cheatsheet.md was created",
+          "path": "docker-course/cheatsheet.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "cheatsheet.md contains image commands",
+          "path": "docker-course/cheatsheet.md",
+          "contains": "docker build"
+        },
+        {
+          "type": "file_contains",
+          "description": "cheatsheet.md contains exec command",
+          "path": "docker-course/cheatsheet.md",
+          "contains": "docker exec"
+        }
+      ]
+    }
+  ]
+}

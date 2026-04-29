@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".github/workflows directory exists",
+          "path": "docker-course/flask-app/.github/workflows"
+        },
+        {
+          "type": "file_exists",
+          "description": "GitHub Actions workflow file was created",
+          "path": "docker-course/flask-app/.github/workflows/docker-publish.yml"
+        },
+        {
+          "type": "file_contains",
+          "description": "Workflow builds and tests the Docker image",
+          "path": "docker-course/flask-app/.github/workflows/docker-publish.yml",
+          "contains": "build-and-test"
+        },
+        {
+          "type": "file_contains",
+          "description": "Workflow has a publish job",
+          "path": "docker-course/flask-app/.github/workflows/docker-publish.yml",
+          "contains": "publish"
+        },
+        {
+          "type": "file_contains",
+          "description": "Workflow uses Docker Hub secrets for login",
+          "path": "docker-course/flask-app/.github/workflows/docker-publish.yml",
+          "contains": "DOCKERHUB_TOKEN"
+        },
+        {
+          "type": "file_contains",
+          "description": "Workflow uses GitHub Actions cache for faster builds",
+          "path": "docker-course/flask-app/.github/workflows/docker-publish.yml",
+          "contains": "cache-from: type=gha"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "flask-app:production container can be started with a restart policy",
+          "command": "docker run -d --restart unless-stopped --name restart-test flask-app:production && docker stop restart-test && docker rm restart-test"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "docker-mental-model.md was created",
+          "path": "docker-course/docker-mental-model.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Mental model covers the four core concepts",
+          "path": "docker-course/docker-mental-model.md",
+          "contains": "Image:"
+        },
+        {
+          "type": "file_contains",
+          "description": "Mental model includes a CI/CD workflow section",
+          "path": "docker-course/docker-mental-model.md",
+          "contains": "CI/CD Workflow"
+        },
+        {
+          "type": "file_contains",
+          "description": "Mental model lists daily commands",
+          "path": "docker-course/docker-mental-model.md",
+          "contains": "Commands I Will Use Every Day"
+        }
+      ]
+    }
+  ]
+}

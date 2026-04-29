@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "flask-app directory exists",
+          "path": "docker-course/flask-app"
+        },
+        {
+          "type": "file_exists",
+          "description": "app.py was created",
+          "path": "docker-course/flask-app/app.py"
+        },
+        {
+          "type": "file_exists",
+          "description": "requirements.txt was created",
+          "path": "docker-course/flask-app/requirements.txt"
+        },
+        {
+          "type": "file_contains",
+          "description": "requirements.txt includes flask",
+          "path": "docker-course/flask-app/requirements.txt",
+          "contains": "flask"
+        },
+        {
+          "type": "file_contains",
+          "description": "requirements.txt includes gunicorn",
+          "path": "docker-course/flask-app/requirements.txt",
+          "contains": "gunicorn"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Dockerfile was created",
+          "path": "docker-course/flask-app/Dockerfile"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile uses python:3.12-slim base image",
+          "path": "docker-course/flask-app/Dockerfile",
+          "contains": "FROM python:3.12-slim"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile sets WORKDIR",
+          "path": "docker-course/flask-app/Dockerfile",
+          "contains": "WORKDIR"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile copies requirements before app code",
+          "path": "docker-course/flask-app/Dockerfile",
+          "contains": "COPY requirements.txt"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile uses gunicorn in CMD",
+          "path": "docker-course/flask-app/Dockerfile",
+          "contains": "gunicorn"
+        },
+        {
+          "type": "command_exits_zero",
+          "description": "flask-app:1.0.0 image was built successfully",
+          "command": "docker images flask-app:1.0.0 --format '{{.Tag}}' | grep 1.0.0"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".dockerignore file exists",
+          "path": "docker-course/flask-app/.dockerignore"
+        },
+        {
+          "type": "file_contains",
+          "description": ".dockerignore excludes .git directory",
+          "path": "docker-course/flask-app/.dockerignore",
+          "contains": ".git"
+        },
+        {
+          "type": "file_contains",
+          "description": ".dockerignore excludes .env files",
+          "path": "docker-course/flask-app/.dockerignore",
+          "contains": ".env"
+        },
+        {
+          "type": "file_contains",
+          "description": ".dockerignore excludes __pycache__",
+          "path": "docker-course/flask-app/.dockerignore",
+          "contains": "__pycache__"
+        }
+      ]
+    }
+  ]
+}

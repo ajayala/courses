@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Dockerfile.optimised was created",
+          "path": "docker-course/flask-app/Dockerfile.optimised"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile.optimised uses multi-stage build with AS builder",
+          "path": "docker-course/flask-app/Dockerfile.optimised",
+          "contains": "AS builder"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile.optimised has a runtime stage",
+          "path": "docker-course/flask-app/Dockerfile.optimised",
+          "contains": "AS runtime"
+        },
+        {
+          "type": "file_contains",
+          "description": "Runtime stage copies from builder using COPY --from",
+          "path": "docker-course/flask-app/Dockerfile.optimised",
+          "contains": "COPY --from=builder"
+        },
+        {
+          "type": "command_exits_zero",
+          "description": "flask-app:slim image was built",
+          "command": "docker images flask-app:slim --format '{{.Tag}}' | grep slim"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Dockerfile.optimised creates a non-root user",
+          "path": "docker-course/flask-app/Dockerfile.optimised",
+          "contains": "useradd"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile.optimised switches to non-root user",
+          "path": "docker-course/flask-app/Dockerfile.optimised",
+          "contains": "USER appuser"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "flask-app:slim runs as non-root user",
+          "command": "docker run --rm flask-app:slim whoami",
+          "pattern": "appuser"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Dockerfile.production was created",
+          "path": "docker-course/flask-app/Dockerfile.production"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile.production includes a HEALTHCHECK instruction",
+          "path": "docker-course/flask-app/Dockerfile.production",
+          "contains": "HEALTHCHECK"
+        },
+        {
+          "type": "file_contains",
+          "description": "Dockerfile.production pins the base image version",
+          "path": "docker-course/flask-app/Dockerfile.production",
+          "contains": "3.12.3"
+        },
+        {
+          "type": "command_exits_zero",
+          "description": "flask-app:production image was built",
+          "command": "docker images flask-app:production --format '{{.Tag}}' | grep production"
+        }
+      ]
+    }
+  ]
+}

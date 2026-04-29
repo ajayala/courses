@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "app-data named volume exists",
+          "command": "docker volume inspect app-data"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "app-network user-defined network exists",
+          "command": "docker network inspect app-network"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "compose-app directory exists",
+          "path": "docker-course/compose-app"
+        },
+        {
+          "type": "file_exists",
+          "description": "docker-compose.yml was created",
+          "path": "docker-course/compose-app/docker-compose.yml"
+        },
+        {
+          "type": "file_contains",
+          "description": "Compose file defines a web service",
+          "path": "docker-course/compose-app/docker-compose.yml",
+          "contains": "web:"
+        },
+        {
+          "type": "file_contains",
+          "description": "Compose file defines a db service",
+          "path": "docker-course/compose-app/docker-compose.yml",
+          "contains": "db:"
+        },
+        {
+          "type": "file_contains",
+          "description": "Compose file defines a named volume for db",
+          "path": "docker-course/compose-app/docker-compose.yml",
+          "contains": "db-data"
+        },
+        {
+          "type": "file_contains",
+          "description": "Compose file includes a healthcheck for the db",
+          "path": "docker-course/compose-app/docker-compose.yml",
+          "contains": "healthcheck"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".env file was created",
+          "path": "docker-course/compose-app/.env"
+        },
+        {
+          "type": "file_contains",
+          "description": ".env file contains POSTGRES_USER",
+          "path": "docker-course/compose-app/.env",
+          "contains": "POSTGRES_USER"
+        },
+        {
+          "type": "file_exists",
+          "description": ".gitignore excludes .env file",
+          "path": "docker-course/compose-app/.gitignore"
+        },
+        {
+          "type": "file_contains",
+          "description": ".gitignore contains .env entry",
+          "path": "docker-course/compose-app/.gitignore",
+          "contains": ".env"
+        },
+        {
+          "type": "file_contains",
+          "description": "docker-compose.yml uses variable substitution for credentials",
+          "path": "docker-course/compose-app/docker-compose.yml",
+          "contains": "${POSTGRES_USER}"
+        }
+      ]
+    }
+  ]
+}

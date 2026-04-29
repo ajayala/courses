@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "docker-for-new-grads-2026",
+  "title": "Docker for New Graduates",
+  "revision": "2026-04-29-001",
+  "publishedAt": "2026-04-29T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — Containers and Docker Fundamentals",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Why Containers Exist and How Docker Works",
+          "estimatedMinutes": 45,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "dkr001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Building and Composing Containers",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Writing Dockerfiles and Building Images",
+          "estimatedMinutes": 55,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "dkr002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Volumes, Networking, and Docker Compose",
+          "estimatedMinutes": 60,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "dkr003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Production-Ready Docker",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Multi-Stage Builds and Image Optimisation",
+          "estimatedMinutes": 50,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "dkr004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Docker in CI/CD and the Professional Workflow",
+          "estimatedMinutes": 50,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "dkr005"
+        }
+      ]
+    }
+  ]
+}
