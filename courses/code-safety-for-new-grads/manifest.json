@@ -48,7 +48,7 @@
         {
           "id": "lab-3-1",
           "title": "How Developer Tools Leak Secrets",
-          "estimatedMinutes": 50,
+          "estimatedMinutes": 65,
           "path": "modules/module-3/lab-3-1/lab.md",
           "contentHash": "saf004"
         },

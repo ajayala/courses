@@ -47,6 +47,10 @@ cat > tool-risks.md << 'EOF'
 How they leak:
 Config change to prevent leaks:
 
+## Online Tools
+How they leak:
+Config change to prevent leaks:
+
 ## Loggers
 How they leak:
 Config change to prevent leaks:
@@ -71,7 +75,103 @@ EOF
 
 ---
 
-## Step 2 — Loggers: The Most Pervasive Leak Vector
+## Step 2 — Online Linting and Formatting Tools
+
+Online tools — Prettier Playground, ESLint demos, black/autopep8 playgrounds, beautifier.io, codebeautify.org, online SQL formatters — are convenient, but they introduce a risk that is easy to overlook: **you are sending your code to a third-party server.**
+
+**What can happen to code you paste:**
+
+| What the service may do | Why it matters |
+|------------------------|---------------|
+| Log requests for debugging | Your code (including any secrets) lives in their server logs |
+| Collect analytics on submitted code | Your secret becomes data in their analytics pipeline |
+| Retain submissions for future reference | Code submitted today may be queryable months later |
+| Use submissions to train AI models | Many services include this in their terms of service |
+| Cache formatted output (shared cache) | A future user querying the same input may receive your code |
+| Suffer a data breach | Your code is now part of a dataset that could be stolen |
+
+**The realistic scenario:**
+
+```
+A developer is writing a database migration script.
+The connection string is temporarily hardcoded while testing:
+
+    postgresql://admin:SuperSecret123@prod-db.company.com/myapp
+
+They paste the file into an online SQL formatter to tidy up the queries.
+The formatter service logs the request. Their server is compromised six
+months later. The attacker finds the credential in a log file.
+```
+
+This is not hypothetical. Several high-profile breaches have been traced back to secrets submitted to paste sites and online tools.
+
+**Common online tools and their risk level:**
+
+| Tool | Typical use | Risk if code contains secrets |
+|------|-------------|-------------------------------|
+| prettier.io/playground | JavaScript / CSS formatting | Medium — logs are possible; terms allow data use |
+| eslint.org/play | JavaScript linting | Medium — same as above |
+| black.vercel.app | Python formatting | Medium — third-party hosted, not official |
+| pythonformat.com | Python formatting | High — unclear data handling policies |
+| beautifier.io | HTML / CSS / JS / JSON | High — commercial service, broad terms |
+| codebeautify.org | JSON / SQL / XML / YAML | High — free service, revenue from ads/data |
+| sqlfiddle.com | SQL queries | High — executes code server-side |
+| jsfiddle.net / codepen.io | JavaScript | Medium–High — submissions are often public by default |
+
+> **The safe rule:** Treat any code that leaves your machine as potentially public. Use locally installed tools instead.
+
+**Safe local alternatives:**
+
+```bash
+# Python — install black locally
+pip install black
+black .                    # formats all Python files in place
+
+# JavaScript / TypeScript / CSS / JSON — install Prettier locally
+npm install --save-dev prettier
+npx prettier --write .     # formats all supported files in place
+
+# JavaScript — ESLint locally
+npm install --save-dev eslint
+npx eslint --fix .
+
+# SQL — use your IDE's built-in formatter (VS Code has SQL formatting extensions)
+# or a local CLI tool such as sql-formatter:
+npm install -g sql-formatter
+sql-formatter -l postgresql query.sql
+
+# JSON — jq is available locally on most systems
+cat data.json | jq .       # pretty-prints JSON without leaving your machine
+```
+
+**IDE format-on-save is the safest pattern of all** — it runs the formatter locally, automatically, before you even think about pasting code anywhere:
+
+```json
+// .vscode/settings.json (commit this to the repo)
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  }
+}
+```
+
+```bash
+cat >> tool-risks.md << 'EOF'
+
+## Online tools I will avoid when code contains secrets
+- [ ] Never paste files containing credentials, tokens, or connection strings into online formatters
+- [ ] Never use paste sites (pastebin, hastebin, gist) to share debugging snippets that include config
+- [ ] Check the terms of service of any online tool before submitting non-trivial code
+- [ ] Prefer locally installed formatters; configure format-on-save in the IDE
+- [ ] If an online tool must be used (e.g., a demo), create a sanitised version of the file first
+EOF
+```
+
+---
+
+## Step 3 — Loggers: The Most Pervasive Leak Vector
 
 Logging is where secrets escape most frequently in production systems, because log configuration is rarely reviewed with the same scrutiny as code.
 
@@ -152,7 +252,7 @@ EOF
 
 ---
 
-## Step 3 — Error Pages and Stack Traces in Production
+## Step 4 — Error Pages and Stack Traces in Production
 
 Every web framework has a "debug mode" that shows beautiful, detailed error pages with full stack traces and local variable values. These are indispensable in development — and catastrophically dangerous in production.
 
@@ -226,7 +326,7 @@ EOF
 
 ---
 
-## Step 4 — CI/CD Pipelines: The Trusted But Leaky Environment
+## Step 5 — CI/CD Pipelines: The Trusted But Leaky Environment
 
 CI/CD pipelines are a high-risk leak surface because they sit at the intersection of secrets (needed to deploy) and logs (written to shared systems).
 
@@ -294,7 +394,7 @@ EOF
 
 ---
 
-## Step 5 — Docker: Secrets Baked Into Images
+## Step 6 — Docker: Secrets Baked Into Images
 
 Docker adds several new secret leak surfaces that developers do not always anticipate.
 
@@ -348,9 +448,9 @@ services:
 
 ---
 
-## Step 6 — Complete the Tool Risks Reference
+## Step 7 — Complete the Tool Risks Reference
 
-Return to `safety-journal/tool-risks.md` and fill in every section with your own explanations and mitigations.
+Return to `safety-journal/tool-risks.md` and fill in every section — including the new Online Tools section — with your own explanations and mitigations.
 
 ```bash
 cat >> tool-risks.md << 'EOF'

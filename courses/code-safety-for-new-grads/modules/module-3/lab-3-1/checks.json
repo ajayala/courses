@@ -90,7 +90,24 @@
       ]
     },
     {
-      "stepIndex": 5,
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "tool-risks.md includes Online Tools section",
+          "path": "safety-journal/tool-risks.md",
+          "contains": "Online Tools"
+        },
+        {
+          "type": "file_contains",
+          "description": "tool-risks.md includes online tools checklist",
+          "path": "safety-journal/tool-risks.md",
+          "contains": "online formatters"
+        }
+      ]
+    },
+    {
+      "stepIndex": 7,
       "checks": [
         {
           "type": "file_contains",
