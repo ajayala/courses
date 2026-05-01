@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "exceptions_demo.py was created",
+          "path": "python-lab/exceptions_demo.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "exceptions_demo.py uses try/except",
+          "path": "python-lab/exceptions_demo.py",
+          "contains": "except ZeroDivisionError"
+        },
+        {
+          "type": "file_contains",
+          "description": "exceptions_demo.py uses finally",
+          "path": "python-lab/exceptions_demo.py",
+          "contains": "finally:"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "exceptions_demo.py defines InvoiceError",
+          "path": "python-lab/exceptions_demo.py",
+          "contains": "class InvoiceError"
+        },
+        {
+          "type": "file_contains",
+          "description": "exceptions_demo.py defines InvoiceNotFoundError",
+          "path": "python-lab/exceptions_demo.py",
+          "contains": "class InvoiceNotFoundError"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "invoicing_app package was created",
+          "path": "python-lab/invoicing_app"
+        },
+        {
+          "type": "file_exists",
+          "description": "invoicing_app/__init__.py exists",
+          "path": "python-lab/invoicing_app/__init__.py"
+        },
+        {
+          "type": "file_exists",
+          "description": "invoicing_app/exceptions.py was created",
+          "path": "python-lab/invoicing_app/exceptions.py"
+        },
+        {
+          "type": "file_exists",
+          "description": "invoicing_app/models.py was created",
+          "path": "python-lab/invoicing_app/models.py"
+        },
+        {
+          "type": "file_exists",
+          "description": "invoicing_app/invoice.py was created",
+          "path": "python-lab/invoicing_app/invoice.py"
+        },
+        {
+          "type": "file_exists",
+          "description": "main.py entry point was created",
+          "path": "python-lab/main.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "models.py uses relative imports",
+          "path": "python-lab/invoicing_app/models.py",
+          "contains": "from .exceptions import"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".gitignore was created",
+          "path": "python-lab/.gitignore"
+        },
+        {
+          "type": "file_contains",
+          "description": ".gitignore excludes .venv",
+          "path": "python-lab/.gitignore",
+          "contains": ".venv/"
+        },
+        {
+          "type": "file_contains",
+          "description": ".gitignore excludes __pycache__",
+          "path": "python-lab/.gitignore",
+          "contains": "__pycache__/"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "requirements.txt was created",
+          "path": "python-lab/requirements.txt"
+        },
+        {
+          "type": "file_contains",
+          "description": "requirements.txt includes requests",
+          "path": "python-lab/requirements.txt",
+          "contains": "requests"
+        },
+        {
+          "type": "file_contains",
+          "description": "requirements.txt includes rich",
+          "path": "python-lab/requirements.txt",
+          "contains": "rich"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "pretty_invoice.py was created",
+          "path": "python-lab/pretty_invoice.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "pretty_invoice.py imports from rich",
+          "path": "python-lab/pretty_invoice.py",
+          "contains": "from rich"
+        },
+        {
+          "type": "file_contains",
+          "description": "pretty_invoice.py uses Console",
+          "path": "python-lab/pretty_invoice.py",
+          "contains": "Console()"
+        }
+      ]
+    }
+  ]
+}

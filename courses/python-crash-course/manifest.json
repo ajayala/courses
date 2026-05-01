@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "python-crash-course-2026",
+  "title": "Python Crash Course for New Graduates",
+  "revision": "2026-05-01-001",
+  "publishedAt": "2026-05-01T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — Python Foundations",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Variables, Types, Control Flow, and Functions",
+          "estimatedMinutes": 50,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "py001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Data Structures and File I/O",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Lists, Dicts, Sets, and Comprehensions",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "py002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Reading Files, Writing Files, and Working with JSON",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "py003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Classes, Errors, and Real-World Patterns",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Object-Oriented Python — Classes and Inheritance",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "py004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Error Handling, Modules, and Virtual Environments",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "py005"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "collections_demo.py was created",
+          "path": "python-lab/collections_demo.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "collections_demo.py uses append",
+          "path": "python-lab/collections_demo.py",
+          "contains": ".append("
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "comprehensions.py was created",
+          "path": "python-lab/comprehensions.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "comprehensions.py uses a list comprehension",
+          "path": "python-lab/comprehensions.py",
+          "contains": "for n in range"
+        },
+        {
+          "type": "file_contains",
+          "description": "comprehensions.py uses a dict comprehension",
+          "path": "python-lab/comprehensions.py",
+          "contains": "name_lengths"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "contact_book.py was created",
+          "path": "python-lab/contact_book.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "contact_book.py defines add_contact",
+          "path": "python-lab/contact_book.py",
+          "contains": "def add_contact"
+        },
+        {
+          "type": "file_contains",
+          "description": "contact_book.py defines find_by_tag",
+          "path": "python-lab/contact_book.py",
+          "contains": "def find_by_tag"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "contact_book.py uses sorted with a key",
+          "path": "python-lab/contact_book.py",
+          "contains": "key=lambda"
+        }
+      ]
+    }
+  ]
+}

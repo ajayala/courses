@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "python-lab directory was created",
+          "path": "python-lab"
+        },
+        {
+          "type": "file_exists",
+          "description": "hello.py was created",
+          "path": "python-lab/hello.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "hello.py uses an f-string",
+          "path": "python-lab/hello.py",
+          "contains": "f\""
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "types.py was created",
+          "path": "python-lab/types.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "types.py uses type()",
+          "path": "python-lab/types.py",
+          "contains": "type("
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "functions.py was created",
+          "path": "python-lab/functions.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "functions.py defines a function with a default parameter",
+          "path": "python-lab/functions.py",
+          "contains": "def greet"
+        },
+        {
+          "type": "file_contains",
+          "description": "functions.py includes a docstring",
+          "path": "python-lab/functions.py",
+          "contains": "\"\"\""
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "calculator.py was created",
+          "path": "python-lab/calculator.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "calculator.py uses __name__ guard",
+          "path": "python-lab/calculator.py",
+          "contains": "__name__ == \"__main__\""
+        },
+        {
+          "type": "file_contains",
+          "description": "calculator.py defines the calculate function",
+          "path": "python-lab/calculator.py",
+          "contains": "def calculate"
+        }
+      ]
+    }
+  ]
+}

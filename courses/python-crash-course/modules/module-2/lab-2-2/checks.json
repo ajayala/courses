@@ -1,0 +1,120 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "file_io.py was created",
+          "path": "python-lab/file_io.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "file_io.py uses a context manager",
+          "path": "python-lab/file_io.py",
+          "contains": "with open("
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "file_io.py imports pathlib",
+          "path": "python-lab/file_io.py",
+          "contains": "from pathlib import Path"
+        },
+        {
+          "type": "file_contains",
+          "description": "file_io.py uses Path for directory creation",
+          "path": "python-lab/file_io.py",
+          "contains": "mkdir("
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "csv_demo.py was created",
+          "path": "python-lab/csv_demo.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "csv_demo.py uses DictWriter",
+          "path": "python-lab/csv_demo.py",
+          "contains": "DictWriter"
+        },
+        {
+          "type": "file_contains",
+          "description": "csv_demo.py uses DictReader",
+          "path": "python-lab/csv_demo.py",
+          "contains": "DictReader"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "json_demo.py was created",
+          "path": "python-lab/json_demo.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "json_demo.py uses json.dump",
+          "path": "python-lab/json_demo.py",
+          "contains": "json.dump("
+        },
+        {
+          "type": "file_contains",
+          "description": "json_demo.py uses json.load",
+          "path": "python-lab/json_demo.py",
+          "contains": "json.load("
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "contact_book_v2.py was created",
+          "path": "python-lab/contact_book_v2.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "contact_book_v2.py defines load_contacts",
+          "path": "python-lab/contact_book_v2.py",
+          "contains": "def load_contacts"
+        },
+        {
+          "type": "file_contains",
+          "description": "contact_book_v2.py defines save_contacts",
+          "path": "python-lab/contact_book_v2.py",
+          "contains": "def save_contacts"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "robust_reader.py was created",
+          "path": "python-lab/robust_reader.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "robust_reader.py catches JSONDecodeError",
+          "path": "python-lab/robust_reader.py",
+          "contains": "json.JSONDecodeError"
+        }
+      ]
+    }
+  ]
+}

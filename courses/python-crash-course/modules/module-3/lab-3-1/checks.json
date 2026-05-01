@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "invoicing.py was created",
+          "path": "python-lab/invoicing.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "invoicing.py defines the Product class",
+          "path": "python-lab/invoicing.py",
+          "contains": "class Product"
+        },
+        {
+          "type": "file_contains",
+          "description": "invoicing.py defines __repr__",
+          "path": "python-lab/invoicing.py",
+          "contains": "def __repr__"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "invoicing.py defines LineItem",
+          "path": "python-lab/invoicing.py",
+          "contains": "class LineItem"
+        },
+        {
+          "type": "file_contains",
+          "description": "LineItem uses @property for total",
+          "path": "python-lab/invoicing.py",
+          "contains": "@property"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "invoicing.py defines Invoice",
+          "path": "python-lab/invoicing.py",
+          "contains": "class Invoice"
+        },
+        {
+          "type": "file_contains",
+          "description": "Invoice defines add_item method",
+          "path": "python-lab/invoicing.py",
+          "contains": "def add_item"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "invoicing.py defines DiscountedInvoice",
+          "path": "python-lab/invoicing.py",
+          "contains": "class DiscountedInvoice"
+        },
+        {
+          "type": "file_contains",
+          "description": "DiscountedInvoice calls super()",
+          "path": "python-lab/invoicing.py",
+          "contains": "super().__init__"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "invoicing.py defines to_dict method",
+          "path": "python-lab/invoicing.py",
+          "contains": "def to_dict"
+        },
+        {
+          "type": "file_exists",
+          "description": "invoices.json was exported",
+          "path": "python-lab/invoices.json"
+        }
+      ]
+    }
+  ]
+}
