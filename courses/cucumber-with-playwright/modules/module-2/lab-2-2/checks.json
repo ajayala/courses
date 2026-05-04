@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "world.ts was created",
+          "path": "bdd-lab/features/support/world.ts"
+        },
+        {
+          "type": "file_contains",
+          "description": "world.ts defines PlaywrightWorld class",
+          "path": "bdd-lab/features/support/world.ts",
+          "contains": "class PlaywrightWorld"
+        },
+        {
+          "type": "file_contains",
+          "description": "world.ts calls setWorldConstructor",
+          "path": "bdd-lab/features/support/world.ts",
+          "contains": "setWorldConstructor"
+        },
+        {
+          "type": "file_contains",
+          "description": "world.ts has openBrowser method",
+          "path": "bdd-lab/features/support/world.ts",
+          "contains": "openBrowser"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "hooks.ts was created",
+          "path": "bdd-lab/features/support/hooks.ts"
+        },
+        {
+          "type": "file_contains",
+          "description": "hooks.ts imports Before and After",
+          "path": "bdd-lab/features/support/hooks.ts",
+          "contains": "Before"
+        },
+        {
+          "type": "file_contains",
+          "description": "hooks.ts takes a screenshot on failure",
+          "path": "bdd-lab/features/support/hooks.ts",
+          "contains": "screenshot"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "login.steps.ts uses PlaywrightWorld",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts",
+          "contains": "PlaywrightWorld"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.steps.ts uses Playwright expect",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts",
+          "contains": "@playwright/test"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.steps.ts uses function keyword (not arrow)",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts",
+          "contains": "async function"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "parameter-types.ts was created",
+          "path": "bdd-lab/features/support/parameter-types.ts"
+        },
+        {
+          "type": "file_contains",
+          "description": "parameter-types.ts calls defineParameterType",
+          "path": "bdd-lab/features/support/parameter-types.ts",
+          "contains": "defineParameterType"
+        },
+        {
+          "type": "file_exists",
+          "description": "browser.steps.ts was created",
+          "path": "bdd-lab/features/step-definitions/browser.steps.ts"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "login.feature has @authenticated tag",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "@authenticated"
+        },
+        {
+          "type": "file_contains",
+          "description": "hooks.ts has a tagged Before hook",
+          "path": "bdd-lab/features/support/hooks.ts",
+          "contains": "@authenticated"
+        }
+      ]
+    }
+  ]
+}

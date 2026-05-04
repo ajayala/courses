@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "login.feature has @smoke tag",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "@smoke"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.feature has @regression tag",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "@regression"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.feature has @happy-path tag",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "@happy-path"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "package.json outputs JSON report",
+          "path": "bdd-lab/package.json",
+          "contains": "cucumber-report.json"
+        },
+        {
+          "type": "file_exists",
+          "description": "scripts directory was created",
+          "path": "bdd-lab/scripts"
+        },
+        {
+          "type": "file_exists",
+          "description": "generate-report.js was created",
+          "path": "bdd-lab/scripts/generate-report.js"
+        },
+        {
+          "type": "file_contains",
+          "description": "generate-report.js uses multiple-cucumber-html-reporter",
+          "path": "bdd-lab/scripts/generate-report.js",
+          "contains": "multiple-cucumber-html-reporter"
+        },
+        {
+          "type": "file_contains",
+          "description": "package.json defines test:smoke script",
+          "path": "bdd-lab/package.json",
+          "contains": "test:smoke"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "cucumber.js config was created",
+          "path": "bdd-lab/cucumber.js"
+        },
+        {
+          "type": "file_contains",
+          "description": "cucumber.js defines a ci profile",
+          "path": "bdd-lab/cucumber.js",
+          "contains": "ci:"
+        },
+        {
+          "type": "file_contains",
+          "description": "cucumber.js uses --parallel",
+          "path": "bdd-lab/cucumber.js",
+          "contains": "--parallel"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".github/workflows directory was created",
+          "path": "bdd-lab/.github/workflows"
+        },
+        {
+          "type": "file_exists",
+          "description": "bdd-tests.yml workflow was created",
+          "path": "bdd-lab/.github/workflows/bdd-tests.yml"
+        },
+        {
+          "type": "file_contains",
+          "description": "workflow uploads test report artifact",
+          "path": "bdd-lab/.github/workflows/bdd-tests.yml",
+          "contains": "upload-artifact"
+        },
+        {
+          "type": "file_contains",
+          "description": "workflow installs Playwright browsers",
+          "path": "bdd-lab/.github/workflows/bdd-tests.yml",
+          "contains": "playwright install"
+        },
+        {
+          "type": "file_exists",
+          "description": ".gitignore was created",
+          "path": "bdd-lab/.gitignore"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "nightly-regression.yml was created",
+          "path": "bdd-lab/.github/workflows/nightly-regression.yml"
+        },
+        {
+          "type": "file_contains",
+          "description": "nightly workflow uses a cron schedule",
+          "path": "bdd-lab/.github/workflows/nightly-regression.yml",
+          "contains": "cron:"
+        },
+        {
+          "type": "file_contains",
+          "description": "nightly workflow runs @regression tag",
+          "path": "bdd-lab/.github/workflows/nightly-regression.yml",
+          "contains": "@regression"
+        }
+      ]
+    }
+  ]
+}

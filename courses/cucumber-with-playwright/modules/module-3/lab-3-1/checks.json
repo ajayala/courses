@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "pages directory was created",
+          "path": "bdd-lab/pages"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "login-page.ts was created",
+          "path": "bdd-lab/pages/login-page.ts"
+        },
+        {
+          "type": "file_contains",
+          "description": "LoginPage defines navigate method",
+          "path": "bdd-lab/pages/login-page.ts",
+          "contains": "async navigate()"
+        },
+        {
+          "type": "file_contains",
+          "description": "LoginPage defines login method",
+          "path": "bdd-lab/pages/login-page.ts",
+          "contains": "async login("
+        },
+        {
+          "type": "file_contains",
+          "description": "LoginPage defines locators as class properties",
+          "path": "bdd-lab/pages/login-page.ts",
+          "contains": "readonly usernameInput"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "dashboard-page.ts was created",
+          "path": "bdd-lab/pages/dashboard-page.ts"
+        },
+        {
+          "type": "file_contains",
+          "description": "DashboardPage defines expectLoginSuccess",
+          "path": "bdd-lab/pages/dashboard-page.ts",
+          "contains": "expectLoginSuccess"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "world.ts imports LoginPage",
+          "path": "bdd-lab/features/support/world.ts",
+          "contains": "LoginPage"
+        },
+        {
+          "type": "file_contains",
+          "description": "world.ts imports DashboardPage",
+          "path": "bdd-lab/features/support/world.ts",
+          "contains": "DashboardPage"
+        },
+        {
+          "type": "file_contains",
+          "description": "world.ts instantiates loginPage",
+          "path": "bdd-lab/features/support/world.ts",
+          "contains": "this.loginPage = new LoginPage"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "login.steps.ts uses loginPage (no direct page calls)",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts",
+          "contains": "this.loginPage"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.steps.ts uses dashboardPage",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts",
+          "contains": "this.dashboardPage"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "navigation.ts was created",
+          "path": "bdd-lab/pages/navigation.ts"
+        },
+        {
+          "type": "file_contains",
+          "description": "navigation.ts defines Navigation class",
+          "path": "bdd-lab/pages/navigation.ts",
+          "contains": "class Navigation"
+        },
+        {
+          "type": "file_contains",
+          "description": "dashboard-page.ts composes Navigation",
+          "path": "bdd-lab/pages/dashboard-page.ts",
+          "contains": "Navigation"
+        }
+      ]
+    }
+  ]
+}

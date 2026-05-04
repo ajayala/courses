@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "bdd-lab directory was created",
+          "path": "bdd-lab"
+        },
+        {
+          "type": "file_exists",
+          "description": "package.json was created",
+          "path": "bdd-lab/package.json"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "features/step-definitions directory exists",
+          "path": "bdd-lab/features/step-definitions"
+        },
+        {
+          "type": "file_exists",
+          "description": "features/support directory exists",
+          "path": "bdd-lab/features/support"
+        },
+        {
+          "type": "file_contains",
+          "description": "package.json includes cucumber configuration",
+          "path": "bdd-lab/package.json",
+          "contains": "\"cucumber\""
+        },
+        {
+          "type": "file_contains",
+          "description": "package.json requires ts-node",
+          "path": "bdd-lab/package.json",
+          "contains": "ts-node/register"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "search.feature was created",
+          "path": "bdd-lab/features/search.feature"
+        },
+        {
+          "type": "file_contains",
+          "description": "Feature file contains a Feature block",
+          "path": "bdd-lab/features/search.feature",
+          "contains": "Feature:"
+        },
+        {
+          "type": "file_contains",
+          "description": "Feature file contains a Scenario",
+          "path": "bdd-lab/features/search.feature",
+          "contains": "Scenario:"
+        },
+        {
+          "type": "file_contains",
+          "description": "Feature file uses Given/When/Then",
+          "path": "bdd-lab/features/search.feature",
+          "contains": "Given"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "search.steps.ts was created",
+          "path": "bdd-lab/features/step-definitions/search.steps.ts"
+        },
+        {
+          "type": "file_contains",
+          "description": "Step definitions import from @cucumber/cucumber",
+          "path": "bdd-lab/features/step-definitions/search.steps.ts",
+          "contains": "@cucumber/cucumber"
+        },
+        {
+          "type": "file_contains",
+          "description": "Step definitions import Playwright",
+          "path": "bdd-lab/features/step-definitions/search.steps.ts",
+          "contains": "playwright"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "reports directory was created",
+          "path": "bdd-lab/reports"
+        },
+        {
+          "type": "file_contains",
+          "description": "Feature file contains the second scenario",
+          "path": "bdd-lab/features/search.feature",
+          "contains": "Searching for nothing"
+        }
+      ]
+    }
+  ]
+}

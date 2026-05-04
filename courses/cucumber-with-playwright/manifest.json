@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "cucumber-with-playwright-2026",
+  "title": "Cucumber with Playwright for New Graduates",
+  "revision": "2026-05-04-001",
+  "publishedAt": "2026-05-04T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — BDD Foundations and Project Setup",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Your First Feature File — Gherkin, Cucumber, and Playwright",
+          "estimatedMinutes": 55,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "cwp001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Writing Scenarios and Step Definitions",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Gherkin Scenarios — Tables, Outlines, and Backgrounds",
+          "estimatedMinutes": 55,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "cwp002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Step Definitions — Parameters, Hooks, and the World Object",
+          "estimatedMinutes": 60,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "cwp003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Page Objects, CI, and Real-World Patterns",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Page Object Model with Playwright",
+          "estimatedMinutes": 60,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "cwp004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Reporting, Tagging, and Running in CI",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "cwp005"
+        }
+      ]
+    }
+  ]
+}

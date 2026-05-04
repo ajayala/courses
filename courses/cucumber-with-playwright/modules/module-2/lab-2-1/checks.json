@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "login.feature was created",
+          "path": "bdd-lab/features/login.feature"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.feature has a Background block",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "Background:"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.feature has multiple scenarios",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "Scenario:"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "login.steps.ts was created",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.steps.ts imports from @cucumber/cucumber",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts",
+          "contains": "@cucumber/cucumber"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "login.feature contains a Scenario Outline",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "Scenario Outline:"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.feature contains an Examples table",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "Examples:"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "login.feature contains a Data Table scenario",
+          "path": "bdd-lab/features/login.feature",
+          "contains": "the following user details:"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.steps.ts imports DataTable",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts",
+          "contains": "DataTable"
+        },
+        {
+          "type": "file_contains",
+          "description": "login.steps.ts uses rowsHash",
+          "path": "bdd-lab/features/step-definitions/login.steps.ts",
+          "contains": "rowsHash()"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "checkout.feature was created",
+          "path": "bdd-lab/features/checkout.feature"
+        },
+        {
+          "type": "file_contains",
+          "description": "checkout.feature uses And keyword",
+          "path": "bdd-lab/features/checkout.feature",
+          "contains": "    And"
+        },
+        {
+          "type": "file_contains",
+          "description": "checkout.feature uses But keyword",
+          "path": "bdd-lab/features/checkout.feature",
+          "contains": "    But"
+        },
+        {
+          "type": "file_exists",
+          "description": "checkout.steps.ts was created",
+          "path": "bdd-lab/features/step-definitions/checkout.steps.ts"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "password-policy.feature was created",
+          "path": "bdd-lab/features/password-policy.feature"
+        },
+        {
+          "type": "file_contains",
+          "description": "password-policy.feature uses Rule keyword",
+          "path": "bdd-lab/features/password-policy.feature",
+          "contains": "Rule:"
+        },
+        {
+          "type": "file_exists",
+          "description": "password.steps.ts was created",
+          "path": "bdd-lab/features/step-definitions/password.steps.ts"
+        }
+      ]
+    }
+  ]
+}
