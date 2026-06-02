@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "basic-seq.mmd exists",
+          "path": "mermaid-course/basic-seq.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "basic-seq.mmd uses sequenceDiagram keyword",
+          "path": "mermaid-course/basic-seq.mmd",
+          "contains": "sequenceDiagram"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "aliases.mmd exists",
+          "path": "mermaid-course/aliases.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "aliases.mmd uses actor keyword",
+          "path": "mermaid-course/aliases.mmd",
+          "contains": "actor"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "oauth2.mmd exists",
+          "path": "mermaid-course/oauth2.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "oauth2.mmd models the token exchange step",
+          "path": "mermaid-course/oauth2.mmd",
+          "contains": "access_token"
+        },
+        {
+          "type": "file_exists",
+          "description": "oauth2.svg was rendered",
+          "path": "mermaid-course/oauth2.svg"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "control-flow.mmd exists",
+          "path": "mermaid-course/control-flow.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "control-flow.mmd contains an alt block",
+          "path": "mermaid-course/control-flow.mmd",
+          "contains": "alt"
+        },
+        {
+          "type": "file_contains",
+          "description": "control-flow.mmd contains a loop block",
+          "path": "mermaid-course/control-flow.mmd",
+          "contains": "loop"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "numbered.mmd exists",
+          "path": "mermaid-course/numbered.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "numbered.mmd uses autonumber",
+          "path": "mermaid-course/numbered.mmd",
+          "contains": "autonumber"
+        }
+      ]
+    }
+  ]
+}

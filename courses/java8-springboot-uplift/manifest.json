@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "java8-springboot-uplift-2026",
+  "title": "Java 8 to Java 21: Uplifting Spring Boot Applications",
+  "revision": "2026-06-02-001",
+  "publishedAt": "2026-06-02T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — Assessing Your Application",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Migration Readiness Assessment",
+          "estimatedMinutes": 45,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "j8u001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Migrating to Java 17",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Updating the Build and Fixing Encapsulation",
+          "estimatedMinutes": 55,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "j8u002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Modernising Code with Java 9–17 Language Features",
+          "estimatedMinutes": 55,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "j8u003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Spring Boot 3 and Java 21",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Migrating to Spring Boot 3 and Jakarta EE",
+          "estimatedMinutes": 60,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "j8u004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Java 21 Features and Virtual Threads",
+          "estimatedMinutes": 60,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "j8u005"
+        }
+      ]
+    }
+  ]
+}

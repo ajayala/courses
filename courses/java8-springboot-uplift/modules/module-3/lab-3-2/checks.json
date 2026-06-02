@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "Active Java version is 21",
+          "command": "java -version 2>&1",
+          "pattern": "21\\."
+        },
+        {
+          "type": "file_contains",
+          "description": "pom.xml targets Java 21",
+          "path": "sample-app/pom.xml",
+          "contains": "<java.version>21</java.version>"
+        },
+        {
+          "type": "file_contains",
+          "description": "pom.xml uses Spring Boot 3.3.x",
+          "path": "sample-app/pom.xml",
+          "contains": "<version>3.3."
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Virtual threads are enabled in application.properties",
+          "path": "sample-app/src/main/resources/application.properties",
+          "contains": "spring.threads.virtual.enabled=true"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Platform thread benchmark results saved",
+          "path": "sample-app/bench-platform.txt"
+        },
+        {
+          "type": "file_exists",
+          "description": "Virtual thread benchmark results saved",
+          "path": "sample-app/bench-virtual.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "GitHub Actions CI workflow file exists",
+          "path": "sample-app/.github/workflows/ci.yml"
+        },
+        {
+          "type": "file_contains",
+          "description": "CI workflow builds against Java 17",
+          "path": "sample-app/.github/workflows/ci.yml",
+          "contains": "'17'"
+        },
+        {
+          "type": "file_contains",
+          "description": "CI workflow builds against Java 21",
+          "path": "sample-app/.github/workflows/ci.yml",
+          "contains": "'21'"
+        }
+      ]
+    }
+  ]
+}

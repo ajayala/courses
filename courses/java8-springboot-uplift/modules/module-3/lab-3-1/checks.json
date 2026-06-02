@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "OpenRewrite dry-run output was saved",
+          "path": "sample-app/rewrite-dryrun.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "No javax.servlet imports remain in main source",
+          "command": "grep -rl 'import javax.servlet' sample-app/src/main/java/ 2>/dev/null | wc -l",
+          "pattern": "^0$"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "No javax.persistence imports remain in main source",
+          "command": "grep -rl 'import javax.persistence' sample-app/src/main/java/ 2>/dev/null | wc -l",
+          "pattern": "^0$"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "WebSecurityConfigurerAdapter has been removed from the codebase",
+          "command": "grep -rl 'WebSecurityConfigurerAdapter' sample-app/src/main/java/ 2>/dev/null | wc -l",
+          "pattern": "^0$"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "SecurityFilterChain bean exists in Security config",
+          "command": "grep -rl 'SecurityFilterChain' sample-app/src/main/java/",
+          "pattern": ".+"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Old properties scan results saved",
+          "path": "sample-app/old-properties.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "pom.xml references Spring Boot 3.2.x",
+          "path": "sample-app/pom.xml",
+          "contains": "<version>3.2."
+        }
+      ]
+    }
+  ]
+}

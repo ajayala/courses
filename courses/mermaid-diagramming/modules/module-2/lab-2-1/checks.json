@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "shapes.mmd file exists",
+          "path": "mermaid-course/shapes.mmd"
+        },
+        {
+          "type": "file_exists",
+          "description": "shapes.svg was rendered",
+          "path": "mermaid-course/shapes.svg"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "edges.mmd file exists",
+          "path": "mermaid-course/edges.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "edges.mmd includes a dashed arrow",
+          "path": "mermaid-course/edges.mmd",
+          "contains": ".->"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "auth-flow.mmd exists",
+          "path": "mermaid-course/auth-flow.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "auth-flow.mmd models the MFA branch",
+          "path": "mermaid-course/auth-flow.mmd",
+          "contains": "MFA"
+        },
+        {
+          "type": "file_exists",
+          "description": "auth-flow.svg was rendered",
+          "path": "mermaid-course/auth-flow.svg"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "auth-flow-sub.mmd uses subgraphs",
+          "path": "mermaid-course/auth-flow-sub.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "auth-flow-sub.mmd contains a subgraph block",
+          "path": "mermaid-course/auth-flow-sub.mmd",
+          "contains": "subgraph"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "auth-styled.mmd exists",
+          "path": "mermaid-course/auth-styled.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "auth-styled.mmd defines a classDef",
+          "path": "mermaid-course/auth-styled.mmd",
+          "contains": "classDef"
+        }
+      ]
+    }
+  ]
+}

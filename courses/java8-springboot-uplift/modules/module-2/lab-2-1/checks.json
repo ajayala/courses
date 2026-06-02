@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "Active Java version is 17",
+          "command": "java -version 2>&1",
+          "pattern": "17\\."
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "pom.xml sets java.version to 17",
+          "path": "sample-app/pom.xml",
+          "contains": "<java.version>17</java.version>"
+        },
+        {
+          "type": "file_contains",
+          "description": "pom.xml uses maven.compiler.release",
+          "path": "sample-app/pom.xml",
+          "contains": "<maven.compiler.release>17</maven.compiler.release>"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "pom.xml uses Spring Boot 2.7.x",
+          "path": "sample-app/pom.xml",
+          "contains": "<version>2.7."
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": ".mvn/jvm.config exists",
+          "path": "sample-app/.mvn/jvm.config"
+        },
+        {
+          "type": "file_contains",
+          "description": "jvm.config includes add-opens for java.base/java.lang",
+          "path": "sample-app/.mvn/jvm.config",
+          "contains": "--add-opens java.base/java.lang=ALL-UNNAMED"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "sun API usage scan results saved",
+          "path": "sample-app/sun-api-usages.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "mvn clean verify passes on Java 17",
+          "command": "bash -c 'cd sample-app && source $HOME/.sdkman/bin/sdkman-init.sh && sdk use java 17.0.10-tem && mvn clean verify -q'"
+        }
+      ]
+    }
+  ]
+}

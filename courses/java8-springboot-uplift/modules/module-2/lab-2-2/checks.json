@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "At least one record class exists in the main source tree",
+          "command": "grep -rl '^public record ' sample-app/src/main/java/",
+          "pattern": ".+"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "instanceof candidates file was generated",
+          "path": "sample-app/instanceof-candidates.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "switch candidates file was generated",
+          "path": "sample-app/switch-candidates.txt"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "At least one switch expression (arrow form) exists in the codebase",
+          "command": "grep -rl ' -> ' sample-app/src/main/java/",
+          "pattern": ".+"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Multi-line string candidates file was generated",
+          "path": "sample-app/multiline-string-candidates.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "command_output_matches",
+          "description": "A sealed interface or sealed class exists in the codebase",
+          "command": "grep -rl 'sealed interface\\|sealed class' sample-app/src/main/java/",
+          "pattern": ".+"
+        }
+      ]
+    }
+  ]
+}

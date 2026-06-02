@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "customers.mmd ER diagram exists",
+          "path": "mermaid-course/customers.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "customers.mmd uses erDiagram keyword",
+          "path": "mermaid-course/customers.mmd",
+          "contains": "erDiagram"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "ecommerce-er.mmd exists",
+          "path": "mermaid-course/ecommerce-er.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "ecommerce-er.mmd includes ORDER_LINE entity",
+          "path": "mermaid-course/ecommerce-er.mmd",
+          "contains": "ORDER_LINE"
+        },
+        {
+          "type": "file_contains",
+          "description": "ecommerce-er.mmd includes PAYMENT entity",
+          "path": "mermaid-course/ecommerce-er.mmd",
+          "contains": "PAYMENT"
+        },
+        {
+          "type": "file_exists",
+          "description": "ecommerce-er.svg was rendered",
+          "path": "mermaid-course/ecommerce-er.svg"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "payment-domain.mmd class diagram exists",
+          "path": "mermaid-course/payment-domain.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "payment-domain.mmd defines PaymentProcessor interface",
+          "path": "mermaid-course/payment-domain.mmd",
+          "contains": "PaymentProcessor"
+        },
+        {
+          "type": "file_contains",
+          "description": "payment-domain.mmd uses interface annotation",
+          "path": "mermaid-course/payment-domain.mmd",
+          "contains": "<<interface>>"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "generics.mmd exists",
+          "path": "mermaid-course/generics.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "generics.mmd uses a generic type parameter",
+          "path": "mermaid-course/generics.mmd",
+          "contains": "Repository~T~"
+        }
+      ]
+    }
+  ]
+}

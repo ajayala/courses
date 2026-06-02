@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "SDKMAN is installed",
+          "command": "bash -c 'source $HOME/.sdkman/bin/sdkman-init.sh && sdk version'"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "Java 17 is available via SDKMAN",
+          "command": "bash -c 'source $HOME/.sdkman/bin/sdkman-init.sh && sdk list java | grep 17'",
+          "pattern": "17\\."
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "jdeps report was generated",
+          "path": "sample-app/jdeps-report.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "jdeprscan report for Java 17 was generated",
+          "path": "sample-app/jdeprscan-17.txt"
+        },
+        {
+          "type": "file_exists",
+          "description": "jdeprscan report for Java 21 was generated",
+          "path": "sample-app/jdeprscan-21.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Dependency tree was captured",
+          "path": "sample-app/deps-tree.txt"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Migration plan document exists",
+          "path": "sample-app/migration-plan.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Migration plan includes the javax→jakarta phase",
+          "path": "sample-app/migration-plan.md",
+          "contains": "jakarta"
+        },
+        {
+          "type": "file_contains",
+          "description": "Migration plan includes virtual threads",
+          "path": "sample-app/migration-plan.md",
+          "contains": "virtual threads"
+        }
+      ]
+    }
+  ]
+}

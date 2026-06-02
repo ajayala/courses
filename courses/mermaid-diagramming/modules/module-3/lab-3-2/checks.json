@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "c4-context.mmd exists",
+          "path": "mermaid-course/c4-context.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "c4-context.mmd uses C4Context keyword",
+          "path": "mermaid-course/c4-context.mmd",
+          "contains": "C4Context"
+        },
+        {
+          "type": "file_contains",
+          "description": "c4-context.mmd includes at least one external system",
+          "path": "mermaid-course/c4-context.mmd",
+          "contains": "System_Ext"
+        },
+        {
+          "type": "file_exists",
+          "description": "c4-context.svg was rendered",
+          "path": "mermaid-course/c4-context.svg"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "c4-containers.mmd exists",
+          "path": "mermaid-course/c4-containers.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "c4-containers.mmd uses C4Container keyword",
+          "path": "mermaid-course/c4-containers.mmd",
+          "contains": "C4Container"
+        },
+        {
+          "type": "file_contains",
+          "description": "c4-containers.mmd includes a database container",
+          "path": "mermaid-course/c4-containers.mmd",
+          "contains": "ContainerDb"
+        },
+        {
+          "type": "file_exists",
+          "description": "c4-containers.svg was rendered",
+          "path": "mermaid-course/c4-containers.svg"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "c4-components.mmd exists",
+          "path": "mermaid-course/c4-components.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "c4-components.mmd uses C4Component keyword",
+          "path": "mermaid-course/c4-components.mmd",
+          "contains": "C4Component"
+        },
+        {
+          "type": "file_contains",
+          "description": "c4-components.mmd defines a Container_Boundary",
+          "path": "mermaid-course/c4-components.mmd",
+          "contains": "Container_Boundary"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "c4-dynamic.mmd exists",
+          "path": "mermaid-course/c4-dynamic.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "c4-dynamic.mmd uses C4Dynamic keyword",
+          "path": "mermaid-course/c4-dynamic.mmd",
+          "contains": "C4Dynamic"
+        },
+        {
+          "type": "file_contains",
+          "description": "c4-dynamic.mmd uses numbered RelIndex entries",
+          "path": "mermaid-course/c4-dynamic.mmd",
+          "contains": "RelIndex"
+        }
+      ]
+    }
+  ]
+}

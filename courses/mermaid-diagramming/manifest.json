@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "mermaid-diagramming-2026",
+  "title": "Mermaid Diagramming: Diagrams as Code",
+  "revision": "2026-06-01-001",
+  "publishedAt": "2026-06-01T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — Getting Started with Mermaid",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Your First Mermaid Diagram",
+          "estimatedMinutes": 45,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "mmd001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Flowcharts and Sequence Diagrams",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Flowcharts: Modelling Processes and Decisions",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "mmd002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Sequence Diagrams: Capturing Interactions Over Time",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "mmd003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Architecture and Data Diagrams",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Entity-Relationship and Class Diagrams",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "mmd004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "C4 Architecture Diagrams with Mermaid",
+          "estimatedMinutes": 60,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "mmd005"
+        }
+      ]
+    }
+  ]
+}

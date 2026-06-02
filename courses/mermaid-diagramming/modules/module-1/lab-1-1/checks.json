@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "Mermaid CLI is installed and responds to --version",
+          "command": "mmdc --version"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "hello.mmd diagram source file exists",
+          "path": "mermaid-course/hello.mmd"
+        },
+        {
+          "type": "file_contains",
+          "description": "hello.mmd uses a top-down graph declaration",
+          "path": "mermaid-course/hello.mmd",
+          "contains": "graph TD"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "hello.png was rendered by the CLI",
+          "path": "mermaid-course/hello.png"
+        },
+        {
+          "type": "file_exists",
+          "description": "hello.svg was rendered by the CLI",
+          "path": "mermaid-course/hello.svg"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "README.md exists in the project directory",
+          "path": "mermaid-course/README.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "README.md contains an embedded mermaid code block",
+          "path": "mermaid-course/README.md",
+          "contains": "```mermaid"
+        }
+      ]
+    }
+  ]
+}
