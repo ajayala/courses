@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "RAML spec file exists",
+          "path": "products-system-api/products-system-api.raml"
+        },
+        {
+          "type": "file_contains",
+          "description": "RAML spec declares RAML 1.0",
+          "path": "products-system-api/products-system-api.raml",
+          "contains": "#%RAML 1.0"
+        },
+        {
+          "type": "file_contains",
+          "description": "RAML spec defines /products resource",
+          "path": "products-system-api/products-system-api.raml",
+          "contains": "/products:"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Products list example JSON exists",
+          "path": "products-system-api/examples/products-list.json"
+        },
+        {
+          "type": "file_contains",
+          "description": "Example includes at least one SKU field",
+          "path": "products-system-api/examples/products-list.json",
+          "contains": "sku"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Anypoint Studio project was created from Exchange import",
+          "path": "products-system-api/src/main/mule/products-system-api.xml"
+        },
+        {
+          "type": "file_contains",
+          "description": "Project XML uses the APIkit router",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "apikit:router"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "GET /products flow is implemented",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "get:\\products"
+        },
+        {
+          "type": "file_contains",
+          "description": "GET /products flow uses a DataWeave transform",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "ee:transform"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "PostgreSQL container is running",
+          "command": "docker exec mule-postgres psql -U mule -d catalogue -c 'SELECT 1'"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "pom.xml includes the Database connector",
+          "path": "products-system-api/pom.xml",
+          "contains": "mule-db-connector"
+        },
+        {
+          "type": "file_contains",
+          "description": "pom.xml includes the PostgreSQL JDBC driver",
+          "path": "products-system-api/pom.xml",
+          "contains": "postgresql"
+        },
+        {
+          "type": "file_exists",
+          "description": "application.properties exists with DB credentials",
+          "path": "products-system-api/src/main/resources/application.properties"
+        },
+        {
+          "type": "file_contains",
+          "description": "application.properties externalises db.user",
+          "path": "products-system-api/src/main/resources/application.properties",
+          "contains": "db.user="
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "GET /products flow uses db:select",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "db:select"
+        },
+        {
+          "type": "file_contains",
+          "description": "GET /products flow maps stock_level to stockLevel",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "stock_level"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Legacy XML flow is defined",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "get-products-xml-flow"
+        },
+        {
+          "type": "file_contains",
+          "description": "XML flow outputs application/xml",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "output application/xml"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "EUR enrichment flow uses http:request",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "get-products-with-eur-flow"
+        },
+        {
+          "type": "file_contains",
+          "description": "EUR flow stores exchange rate in a variable",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "eurRate"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Mule project directory was created",
+          "path": "hello-mule"
+        },
+        {
+          "type": "file_exists",
+          "description": "pom.xml exists in the project root",
+          "path": "hello-mule/pom.xml"
+        },
+        {
+          "type": "file_exists",
+          "description": "mule-artifact.json runtime descriptor exists",
+          "path": "hello-mule/mule-artifact.json"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Main flow XML file exists",
+          "path": "hello-mule/src/main/mule/hello-mule.xml"
+        },
+        {
+          "type": "file_contains",
+          "description": "Flow XML defines an HTTP listener on /hello",
+          "path": "hello-mule/src/main/mule/hello-mule.xml",
+          "contains": "path=\"/hello\""
+        },
+        {
+          "type": "file_contains",
+          "description": "Flow XML uses set-payload",
+          "path": "hello-mule/src/main/mule/hello-mule.xml",
+          "contains": "set-payload"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Flow XML defines a sub-flow",
+          "path": "hello-mule/src/main/mule/hello-mule.xml",
+          "contains": "<sub-flow"
+        },
+        {
+          "type": "file_contains",
+          "description": "Flow uses a set-variable component",
+          "path": "hello-mule/src/main/mule/hello-mule.xml",
+          "contains": "<set-variable"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "application.properties contains api.id",
+          "path": "products-system-api/src/main/resources/application.properties",
+          "contains": "api.id="
+        },
+        {
+          "type": "file_contains",
+          "description": "Config XML registers API autodiscovery",
+          "path": "products-system-api/src/main/mule/products-system-api-config.xml",
+          "contains": "api-gateway:autodiscovery"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "pom.xml includes the Secure Properties module",
+          "path": "products-system-api/pom.xml",
+          "contains": "mule-secure-configuration-property-module"
+        },
+        {
+          "type": "file_contains",
+          "description": "application.properties uses an encrypted password value",
+          "path": "products-system-api/src/main/resources/application.properties",
+          "contains": "db.password=!["
+        },
+        {
+          "type": "file_contains",
+          "description": "Config XML uses secure-properties:config",
+          "path": "products-system-api/src/main/mule/products-system-api-config.xml",
+          "contains": "secure-properties:config"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "Maven package produces a deployable JAR",
+          "command": "bash -c 'cd products-system-api && mvn clean package -DskipTests -q && ls target/*.jar'"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "GitHub Actions deployment workflow exists",
+          "path": "products-system-api/.github/workflows/deploy.yml"
+        },
+        {
+          "type": "file_contains",
+          "description": "CI/CD workflow deploys to CloudHub",
+          "path": "products-system-api/.github/workflows/deploy.yml",
+          "contains": "Deploy to CloudHub"
+        },
+        {
+          "type": "file_contains",
+          "description": "CI/CD workflow uses ANYPOINT_USERNAME secret",
+          "path": "products-system-api/.github/workflows/deploy.yml",
+          "contains": "ANYPOINT_USERNAME"
+        }
+      ]
+    }
+  ]
+}

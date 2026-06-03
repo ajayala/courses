@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "GET /products/{productId} flow has a local error-handler",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "<error-handler>"
+        },
+        {
+          "type": "file_contains",
+          "description": "Error handler uses on-error-continue for validation errors",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "on-error-continue"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Global error handler is defined",
+          "path": "products-system-api/src/main/mule/products-system-api-config.xml",
+          "contains": "Global_Error_Handler"
+        },
+        {
+          "type": "file_contains",
+          "description": "Global error handler handles APIKIT:BAD_REQUEST",
+          "path": "products-system-api/src/main/mule/products-system-api-config.xml",
+          "contains": "APIKIT:BAD_REQUEST"
+        },
+        {
+          "type": "file_contains",
+          "description": "Global error handler is registered as default",
+          "path": "products-system-api/src/main/mule/products-system-api-config.xml",
+          "contains": "defaultErrorHandler-ref"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "GET /products flow logs the correlationId",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "correlationId"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "until-successful scope is used for the exchange rate call",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "until-successful"
+        },
+        {
+          "type": "file_contains",
+          "description": "Retry exhausted error is handled with a fallback",
+          "path": "products-system-api/src/main/mule/products-system-api.xml",
+          "contains": "MULE:RETRY_EXHAUSTED"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "MUnit test suite file exists",
+          "path": "products-system-api/src/test/munit/products-test-suite.xml"
+        },
+        {
+          "type": "file_contains",
+          "description": "MUnit test asserts a 404 status code",
+          "path": "products-system-api/src/test/munit/products-test-suite.xml",
+          "contains": "404"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "mulesoft-integration-and-api-development-2026",
+  "title": "MuleSoft Integration and API Development",
+  "revision": "2026-06-03-001",
+  "publishedAt": "2026-06-03T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — Getting Started with MuleSoft",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Your First Mule Application",
+          "estimatedMinutes": 45,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "mul001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — APIs and Integrations",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Designing APIs with RAML and APIkit",
+          "estimatedMinutes": 55,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "mul002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Connectors and DataWeave Transformations",
+          "estimatedMinutes": 60,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "mul003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Reliability, Security, and Deployment",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Error Handling and Resilience Patterns",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "mul004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Securing and Deploying to CloudHub",
+          "estimatedMinutes": 60,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "mul005"
+        }
+      ]
+    }
+  ]
+}
