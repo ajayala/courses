@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "title": "New Graduate Training",
+  "courses": [
+    { "title": "Agile & Scrum for New Graduates", "path": "agile-scrum-for-new-grads" },
+    { "title": "Code Safety for New Graduates", "path": "code-safety-for-new-grads" },
+    { "title": "Common Git Commands: A Hands-On Course", "path": "common-git-commands" },
+    { "title": "Cucumber with Playwright for New Graduates", "path": "cucumber-with-playwright" },
+    { "title": "Docker for New Graduates", "path": "docker-for-new-grads" },
+    { "title": "Java 8 to Java 21: Uplifting Spring Boot Applications", "path": "java8-springboot-uplift" },
+    { "title": "Mermaid Diagramming: Diagrams as Code", "path": "mermaid-diagramming" },
+    { "title": "MuleSoft Integration and API Development", "path": "mulesoft-integration-and-api-development" },
+    { "title": "Practical Git for Production Code Changes", "path": "practical-git-prod-changes" },
+    { "title": "Practical Git for Production Changes — VS Code Edition", "path": "practical-git-prod-changes-vscode" },
+    { "title": "Python Crash Course for New Graduates", "path": "python-crash-course" },
+    { "title": "Software Architecture for New Graduates", "path": "software-architecture-for-new-grads" }
+  ]
+}
