@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "title": "Claude Bootcamp",
+  "courses": [
+    { "title": "Common Git Commands: A Hands-On Course", "path": "common-git-commands" },
+    { "title": "Mermaid Diagramming: Diagrams as Code", "path": "mermaid-diagramming" },
+    { "title": "Prompt Engineering using Claude", "path": "prompt-engineering-using-claude" },
+    { "title": "Software Architecture for New Graduates", "path": "software-architecture-for-new-grads" }
+  ]
+}
