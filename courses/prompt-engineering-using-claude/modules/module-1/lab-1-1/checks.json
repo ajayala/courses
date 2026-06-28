@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "claude-prompting workspace was created",
+          "path": "claude-prompting"
+        },
+        {
+          "type": "file_exists",
+          "description": "prompts library directory was created",
+          "path": "claude-prompting/prompts"
+        },
+        {
+          "type": "file_contains",
+          "description": "prompt-journal.md has the Lab 1 heading",
+          "path": "claude-prompting/prompt-journal.md",
+          "contains": "Prompt Journal"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "principles.md captures the Context ingredient",
+          "path": "claude-prompting/prompts/principles.md",
+          "contains": "Context"
+        },
+        {
+          "type": "file_contains",
+          "description": "principles.md captures the Constraints ingredient",
+          "path": "claude-prompting/prompts/principles.md",
+          "contains": "Constraints"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "task-tracker spec.md was created",
+          "path": "claude-prompting/task-tracker/spec.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "spec.md contains a Requirements section",
+          "path": "claude-prompting/task-tracker/spec.md",
+          "contains": "Requirements"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Scaffold prompt names the app.py file",
+          "path": "claude-prompting/prompts/01-scaffold.md",
+          "contains": "app.py"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "The generated application file app.py exists",
+          "path": "claude-prompting/task-tracker/app.py"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Refinement prompt 02 was saved to the library",
+          "path": "claude-prompting/prompts/02-refine.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Journal records the first iteration",
+          "path": "claude-prompting/prompt-journal.md",
+          "contains": "Iteration 1"
+        }
+      ]
+    }
+  ]
+}

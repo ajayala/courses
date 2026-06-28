@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "cas/research.md was created",
+          "path": "claude-prompting/cas/research.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Research notes describe the service ticket exchange",
+          "path": "claude-prompting/cas/research.md",
+          "contains": "service ticket"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Implementation plan lists the CasAuthenticationProvider bean",
+          "path": "claude-prompting/cas/implementation-plan.md",
+          "contains": "CasAuthenticationProvider"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "CAS generation prompt 10 was saved to the library",
+          "path": "claude-prompting/prompts/10-cas-impl.md"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "SecurityConfig.java was saved",
+          "path": "claude-prompting/cas/SecurityConfig.java"
+        },
+        {
+          "type": "file_contains",
+          "description": "SecurityConfig wires up the CasAuthenticationProvider",
+          "path": "claude-prompting/cas/SecurityConfig.java",
+          "contains": "CasAuthenticationProvider"
+        },
+        {
+          "type": "file_contains",
+          "description": "SecurityConfig uses the modern SecurityFilterChain style",
+          "path": "claude-prompting/cas/SecurityConfig.java",
+          "contains": "SecurityFilterChain"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Dependency snippet includes spring-security-cas",
+          "path": "claude-prompting/cas/pom-snippet.xml",
+          "contains": "spring-security-cas"
+        }
+      ]
+    },
+    {
+      "stepIndex": 5,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Review checklist covers the planned beans",
+          "path": "claude-prompting/cas/review.md",
+          "contains": "Plan coverage"
+        }
+      ]
+    }
+  ]
+}

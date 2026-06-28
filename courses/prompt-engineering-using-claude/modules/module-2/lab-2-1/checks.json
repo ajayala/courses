@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "investigation notes directory was created",
+          "path": "claude-prompting/investigation"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Mapping prompt 03 was saved to the library",
+          "path": "claude-prompting/prompts/03-map.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "codebase-map.md has a top-level layout section",
+          "path": "claude-prompting/investigation/codebase-map.md",
+          "contains": "Top-level layout"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "glossary.md has a Terms section",
+          "path": "claude-prompting/investigation/glossary.md",
+          "contains": "Terms"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "codebase-map.md records a verified claim",
+          "path": "claude-prompting/investigation/codebase-map.md",
+          "contains": "Verified"
+        }
+      ]
+    }
+  ]
+}

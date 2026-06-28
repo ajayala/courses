@@ -12,6 +12,7 @@
     { "title": "MuleSoft Integration and API Development", "path": "mulesoft-integration-and-api-development" },
     { "title": "Practical Git for Production Code Changes", "path": "practical-git-prod-changes" },
     { "title": "Practical Git for Production Changes — VS Code Edition", "path": "practical-git-prod-changes-vscode" },
+    { "title": "Prompt Engineering using Claude", "path": "prompt-engineering-using-claude" },
     { "title": "Python Crash Course for New Graduates", "path": "python-crash-course" },
     { "title": "Software Architecture for New Graduates", "path": "software-architecture-for-new-grads" }
   ]

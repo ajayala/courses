@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "The buggy cart.py program was created",
+          "path": "claude-prompting/debugging/cart.py"
+        },
+        {
+          "type": "file_contains",
+          "description": "cart.py defines the add_item function",
+          "path": "claude-prompting/debugging/cart.py",
+          "contains": "def add_item"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "bug-report.md was created",
+          "path": "claude-prompting/debugging/bug-report.md"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Debugging prompt 06 was saved to the library",
+          "path": "claude-prompting/prompts/06-debug.md"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "cart.py has the mutable-default fix applied",
+          "path": "claude-prompting/debugging/cart.py",
+          "contains": "cart is None"
+        },
+        {
+          "type": "file_contains",
+          "description": "bug-report.md names the mutable default argument root cause",
+          "path": "claude-prompting/debugging/bug-report.md",
+          "contains": "mutable default"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "Fixed program shows Bob's total is 4.5",
+          "command": "python3 claude-prompting/debugging/cart.py",
+          "pattern": "Bob's total: 4.5"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Journal captures the reusable debugging pattern",
+          "path": "claude-prompting/prompt-journal.md",
+          "contains": "Reusable debugging pattern"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "prompt-engineering-using-claude-2026",
+  "title": "Prompt Engineering using Claude",
+  "revision": "2026-06-28-001",
+  "publishedAt": "2026-06-28T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — Building Applications with Claude",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "Creating an Application from a Prompt",
+          "estimatedMinutes": 55,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "pec001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — Understanding and Investigating a Codebase",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "Exploring an Unfamiliar Codebase",
+          "estimatedMinutes": 45,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "pec002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "Investigating Bugs and Tracing Behaviour",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "pec003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — Researching Topics and a Real-World Case Study",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "Researching Technical Topics with Claude",
+          "estimatedMinutes": 45,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "pec004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "Case Study — Implementing CAS Authentication in a Java Web Application",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "pec005"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "research/brief.md was created",
+          "path": "claude-prompting/research/brief.md"
+        },
+        {
+          "type": "file_contains",
+          "description": "Brief states explicit decision criteria",
+          "path": "claude-prompting/research/brief.md",
+          "contains": "Decision criteria"
+        }
+      ]
+    },
+    {
+      "stepIndex": 1,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "Research prompt 07 was saved to the library",
+          "path": "claude-prompting/prompts/07-research.md"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Brief records a tentative recommendation",
+          "path": "claude-prompting/research/brief.md",
+          "contains": "Tentative recommendation"
+        }
+      ]
+    },
+    {
+      "stepIndex": 3,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Brief has a claims-to-verify checklist",
+          "path": "claude-prompting/research/brief.md",
+          "contains": "Claims to verify"
+        }
+      ]
+    },
+    {
+      "stepIndex": 4,
+      "checks": [
+        {
+          "type": "file_contains",
+          "description": "Brief ends with a decision summary including confidence",
+          "path": "claude-prompting/research/brief.md",
+          "contains": "Decision summary"
+        }
+      ]
+    }
+  ]
+}
