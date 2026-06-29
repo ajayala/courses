@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "courseId": "<slug>-2026",
+  "title": "<Course Title>",
+  "revision": "<YYYY-MM-DD>-001",
+  "publishedAt": "<YYYY-MM-DD>T00:00:00Z",
+  "modules": [
+    {
+      "id": "module-1",
+      "title": "Module 1 — <Module 1 Title>",
+      "order": 1,
+      "labs": [
+        {
+          "id": "lab-1-1",
+          "title": "<Lab 1-1 Title>",
+          "estimatedMinutes": 50,
+          "path": "modules/module-1/lab-1-1/lab.md",
+          "contentHash": "<pfx>001"
+        }
+      ]
+    },
+    {
+      "id": "module-2",
+      "title": "Module 2 — <Module 2 Title>",
+      "order": 2,
+      "labs": [
+        {
+          "id": "lab-2-1",
+          "title": "<Lab 2-1 Title>",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-1/lab.md",
+          "contentHash": "<pfx>002"
+        },
+        {
+          "id": "lab-2-2",
+          "title": "<Lab 2-2 Title>",
+          "estimatedMinutes": 50,
+          "path": "modules/module-2/lab-2-2/lab.md",
+          "contentHash": "<pfx>003"
+        }
+      ]
+    },
+    {
+      "id": "module-3",
+      "title": "Module 3 — <Module 3 Title>",
+      "order": 3,
+      "labs": [
+        {
+          "id": "lab-3-1",
+          "title": "<Lab 3-1 Title>",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-1/lab.md",
+          "contentHash": "<pfx>004"
+        },
+        {
+          "id": "lab-3-2",
+          "title": "<Lab 3-2 Title>",
+          "estimatedMinutes": 55,
+          "path": "modules/module-3/lab-3-2/lab.md",
+          "contentHash": "<pfx>005"
+        }
+      ]
+    }
+  ]
+}

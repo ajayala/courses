@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "stepIndex": 0,
+      "checks": [
+        {
+          "type": "file_exists",
+          "description": "<workspace-dir> directory was created",
+          "path": "<workspace-dir>"
+        },
+        {
+          "type": "file_contains",
+          "description": "<file> contains <expected content>",
+          "path": "<workspace-dir>/<file>",
+          "contains": "<literal substring>"
+        }
+      ]
+    },
+    {
+      "stepIndex": 2,
+      "checks": [
+        {
+          "type": "command_exits_zero",
+          "description": "<what running this command proves>",
+          "command": "<shell command>"
+        },
+        {
+          "type": "command_output_matches",
+          "description": "<what the output should show>",
+          "command": "<shell command>",
+          "pattern": "<regex>"
+        }
+      ]
+    }
+  ]
+}
